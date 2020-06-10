@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Card;
 use App\product;
 use Illuminate\Http\Request;
 
@@ -114,5 +114,29 @@ class ProductController extends Controller
        $product=product::findOrFail($id);
        $product->delete();
         return redirect()->route('product.index');
+    }
+
+    public function addToCart(Product $product) {
+
+        if (session()->has('card')) {
+            $card = new Card(session()->get('card'));
+        } else {
+            $card = new Card();
+        }
+        $card->add($product);
+        //dd($cart);
+        session()->put('card', $card);
+        return redirect('index');
+    }
+
+    public function showCart() {
+        $products=Product::all();
+        if (session()->has('card')) {
+            $card = new Card(session()->get('card'));
+        } else {
+            $card = null;
+        }
+
+        return view('index', compact('card','products'));
     }
 }

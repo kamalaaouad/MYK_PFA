@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\product;
 use Auth;
 use http\Client\Curl\User;
 use Illuminate\Http\Request;
@@ -24,7 +25,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('index');
+        //$products=Product::all(); ,'products'
+        //return view('index');
+        $products=Product::all();
+        return view('test',compact('products'));
     }
 
     public function logout(Request $request) {

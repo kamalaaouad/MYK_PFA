@@ -299,7 +299,7 @@
     <div class="main-instagram owl-carousel owl-theme">
         <div class="item">
             <div class="ins-inner-box">
-                <img src="image/instagram/4.jpg"  alt="" />
+                <img src="image/instagram/4.jpg" alt="" />
                 <div class="hov-in">
                     <a href="#"><i class="fab fa-instagram"></i></a>
                 </div>
@@ -307,7 +307,7 @@
         </div>
         <div class="item">
             <div class="ins-inner-box">
-                <img src="image/instagram/4.jpg"  alt="" />
+                <img src="image/instagram/3.jpg" alt="" />
                 <div class="hov-in">
                     <a href="#"><i class="fab fa-instagram"></i></a>
                 </div>
@@ -315,7 +315,7 @@
         </div>
         <div class="item">
             <div class="ins-inner-box">
-                <img src="image/instagram/4.jpg"  alt="" />
+                <img src="image/instagram/2.jpg" alt="" />
                 <div class="hov-in">
                     <a href="#"><i class="fab fa-instagram"></i></a>
                 </div>
@@ -323,55 +323,7 @@
         </div>
         <div class="item">
             <div class="ins-inner-box">
-                <img src="image/instagram/4.jpg"  alt="" />
-                <div class="hov-in">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="ins-inner-box">
-                <img src="image/instagram/4.jpg"  alt="" />
-                <div class="hov-in">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="ins-inner-box">
-                <img src="image/instagram/4.jpg"  alt="" />
-                <div class="hov-in">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="ins-inner-box">
-                <img src="image/instagram/4.jpg"  alt="" />
-                <div class="hov-in">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="ins-inner-box">
-                <img src="image/instagram/4.jpg"  alt="" />
-                <div class="hov-in">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="ins-inner-box">
-                <img src="image/instagram/4.jpg"  alt="" />
-                <div class="hov-in">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <div class="ins-inner-box">
-                <img src="image/instagram/4.jpg"  alt="" />
+                <img src="image/instagram/1.jpg" alt="" />
                 <div class="hov-in">
                     <a href="#"><i class="fab fa-instagram"></i></a>
                 </div>
@@ -436,27 +388,27 @@
                     <div class="footer-link">
                         <h4>Information</h4>
                         <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Customer Service</a></li>
-                            <li><a href="#">Our Sitemap</a></li>
-                            <li><a href="#">Terms &amp; Conditions</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Delivery Information</a></li>
+                            <li><a href="#">A propos</a></li>
+                            <li><a href="#">Service client</a></li>
+                            <li><a href="#">Notre localisation</a></li>
+                            <li><a href="#">Conditions generals</a></li>
+                            <li><a href="#">Données personnelles</a></li>
+                            <li><a href="#">Information de livraison</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-12 col-sm-12">
                     <div class="footer-link-contact">
-                        <h4>Contact Us</h4>
+                        <h4>Contactez-nous</h4>
                         <ul>
                             <li>
-                                <p><i class="fas fa-map-marker-alt"></i>Address: Michael I. Days 3756 <br>Preston Street Wichita,<br> KS 67213 </p>
+                                <p><i class="fas fa-map-marker-alt"></i>Address: 05 lot bouizgaren, <br> Route de Safi,<br> Marrakech 40000</p>
                             </li>
                             <li>
-                                <p><i class="fas fa-phone-square"></i>Phone: <a href="tel:+1-888705770">+1-888 705 770</a></p>
+                                <p><i class="fas fa-phone-square"></i>Phone: <a href="tel:+ 212 644 737 830">+ 212 644 737 830</a></p>
                             </li>
                             <li>
-                                <p><i class="fas fa-envelope"></i>Email: <a href="mailto:contactinfo@gmail.com">contactinfo@gmail.com</a></p>
+                                <p><i class="fas fa-envelope"></i>Email: <a href="Email:Emsi2020@gmail.com">Emsi2020@gmail.com</a></p>
                             </li>
                         </ul>
                     </div>
@@ -469,8 +421,7 @@
 
 <!-- Start copyright  -->
 <div class="footer-copyright">
-    <p class="footer-company">All Rights Reserved. &copy; 2018 <a href="#">ThewayShop</a> Design By :
-        <a href="https://html.design/">html design</a></p>
+    <p class="footer-company">All Rights Reserved. &copy; 2020 <a href="index.html">MYK BEAUTY</p>
 </div>
 <!-- End copyright  -->
 
@@ -493,5 +444,7 @@
 <script src="js/contact-form-script.js"></script>
 <script src="js/custom.js"></script>
 </body>
+
+</html>
 
 </html>
