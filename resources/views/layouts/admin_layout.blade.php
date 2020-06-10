@@ -7,7 +7,7 @@
     <title>@yield('title')</title>
     <link
         rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Roboto:400,700"
+        href="{{asset('https://fonts.googleapis.com/css?family=Roboto:400,700')}}"
     />
     <!-- https://fonts.google.com/specimen/Roboto -->
     <link rel="stylesheet" href="{{ asset('css/fontawesome.min.css') }}" />
@@ -103,11 +103,32 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav">
-                    <li class="nav-item">
+
+                    @auth
+
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+                    @endauth
+                    <!--<li class="nav-item">
                         <a class="nav-link d-block" href="login.html">
                             Admin, <b>Se deconnecter</b>
                         </a>
-                    </li>
+                    </li>-->
                 </ul>
             </div>
         </div>
@@ -146,6 +167,8 @@
     <script src="{{asset('js/tooplate-scripts.js')}}"></script>
 
 
+
+
     <script>
         Chart.defaults.global.defaultFontColor = 'white';
         let ctxLine,
@@ -178,6 +201,7 @@
           });
         });
       </script>
+<script src="{{ asset('jss/jquery.min.js') }}" defer></script>
 
 </body>
 
