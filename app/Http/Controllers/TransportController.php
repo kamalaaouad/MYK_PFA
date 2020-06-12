@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
+use App\Http\Controllers\auth;
 
 class TransportController extends Controller
 {
@@ -17,7 +17,7 @@ class TransportController extends Controller
     }
     public function index()
     {
-        return view('admin.transport.transport');
+        return view('transport.index');
     }
 
     /**
@@ -38,7 +38,30 @@ class TransportController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+
+        // $this->validate($request, [
+        //     'name' => 'required|min:3|max:50',
+        //     'email' => 'email',
+        //     'vat_number' => 'max:13',
+        //     'password' => 'required|confirmed|min:6',
+        // ]);
+        
+
+        
+        //  $this->validate($request, [
+        //     'name' => 'required|min:6|max:50',
+        //     'mail' => 'email',
+        //     'password' => 'min:6|required_with:password_confirmation|same:password_confirmation',
+        //     'password_confirmation' => 'min:6'
+        //     ]);
+        // $trasporteur = new \App\Transport();
+        // $trasporteur->name=$request->input('name');
+        // $trasporteur->email=$request->input('mail');
+        // $trasporteur->password=auth::hash($request->input('address'));
+        // $trasporteur->name=$request->input('tel');
+        // $trasporteur->name=$request->input('name');
+
     }
 
     /**

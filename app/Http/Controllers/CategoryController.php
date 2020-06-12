@@ -16,6 +16,11 @@ class CategoryController extends Controller
         return view('admin.category.category',['categories'=>Category::all()]);
     }
 
+    public function __construct()
+    {
+        $this->middleware('role:superadministrator');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

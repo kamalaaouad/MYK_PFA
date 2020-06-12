@@ -49,7 +49,7 @@
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div class="custom-select-box">
                     <select id="basic" class="selectpicker show-tick form-control" data-placeholder="$ USD">
-                        <option> DH</option>
+                        <option selected> DH</option>
                         <option>$ USD</option>
                         <option>€ EUR</option>
                     </select>
@@ -216,7 +216,7 @@
                 <ul>
                     <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
                     <li class="side-menu">
-                        <a href="">
+                        <a href="#">
                             <i class="fa fa-shopping-bag"></i>
                             <span class="badge">{{ session()->has('card') ? session()->get('card')->totalQty : '0' }}</span>
                             <p>Mon panier</p>
@@ -378,6 +378,7 @@
         <script src="{{asset('js/form-validator.min.js')}}"></script>
         <script src="{{asset('js/contact-form-script.js')}}"></script>
         <script src="{{asset('js/custom.js')}}"></script>
+        
 </body>
 
 </html>

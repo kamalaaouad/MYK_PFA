@@ -16,6 +16,12 @@ class BrandController extends Controller
         return view('admin.brand.brand',['brands'=>Brand::all()]);
     }
 
+
+    public function __construct()
+    {
+        $this->middleware('role:superadministrator');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

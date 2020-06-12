@@ -80,4 +80,22 @@ class RegisterController extends Controller
 
         return $user;
     }
+
+    protected function create_transporteur(array $data)
+    {
+        // $user= User::create([
+        //     'name' => $data['name'],
+        //     'email' => $data['mail'],
+        //     'password' => Hash::make($data['password']),
+        //     'address' => $data['address'],
+        //     'tel' => $data['tel'],
+        //     // 'image' => $data['image'],
+        //     'image' => "image.jpg",
+        // ]);
+
+        // $user->attachRole('transporteur');
+
+        // return $user;
+        dd($data);
+    }
 }

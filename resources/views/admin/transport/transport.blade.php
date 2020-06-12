@@ -17,62 +17,65 @@
                 <h1 style="color:white">Ajouter un transpoteur</h1>
           </div>
 
-<form>
-    <div class="form-row">
-      <div class="col-md-4 mb-3">
-        <label for="nom">Nom</label>
-        <input type="text" class="form-control " id="nom" placeholder="nom"  required style="background-color: white;color:black;">
-      </div>
-      <div class="col-md-4 mb-3">
-        <label for="prenom">Prenom</label>
-        <input type="text" class="form-control" id="prenom" placeholder="Last name"  required style="background-color: white;color:black;">
-
-      </div>
-      <div class="col-md-4 mb-3">
-        <label for="username">Username</label>
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="username">@</span>
+    <form method="POST" action="{{route('')}}" >
+      @csrf
+        <div class="form-row">
+          <div class="col-md-6 mb-6">
+            <label for="nom">Nom</label>
+            <input type="text" class="form-control " name="name" id="nom" placeholder="nom"  required style="background-color: white;color:black;">
           </div>
-          <input type="text" class="form-control" id="username" placeholder="Username" aria-describedby="inputGroupPrepend3" required style="background-color: white;color:black;">
-        </div>
-      </div>
-    </div>
+          {{-- <div class="col-md-4 mb-3">
+            <label for="prenom">Prenom</label>
+            <input type="text" class="form-control" id="prenom" placeholder="Last name"  required style="background-color: white;color:black;">
 
-    <div class="form-row">
-      <div class="col-md-4 mb-3">
-        <label for="tel">Tél</label>
-        <input type="tel" class="form-control " id="tel" placeholder="+212 600 000 000" required style="background-color: white;color:black;">
-        {{-- is-invalid --}}
-        {{-- <div class="invalid-feedback">
-          Please provide a valid state.
-        </div> --}}
-      </div>
-      <div class="col-md-4 mb-3">
-        <label for="ville">Ville</label>
-        <input type="text" class="form-control " id="ville" placeholder="ville" required style="background-color: white;color:black;">
-        {{-- <div class="invalid-feedback">
-          Please provide a valid city.
-        </div> --}}
-      </div>
-      <div class="col-md-4 mb-3">
-        <label for="region">Region</label>
-        <input type="text" class="form-control " id="region" placeholder="region" required style="background-color: white;color:black;">
-        {{-- is-invalid --}}
-        {{-- <div class="invalid-feedback">
-          Please provide a valid state.
-        </div> --}}
-      </div>
-      <div class="col-md-3 mb-3">
-        <label for="postal">Code postal</label>
-        <input type="text" class="form-control " id="postall" placeholder="ex : 40000" required style="background-color: white;color:black;">
-        {{-- <div class="invalid-feedback">
-          Please provide a valid zip.
-        </div> --}}
-      </div>
-    </div>
-    </div>
-    <button class="btn btn-primary" type="submit">Ajouter</button>
+          </div> --}}
+          <div class="col-md-6 mb-6">
+            <label for="username">Mail</label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="mail">@</span>
+              </div>
+              <input type="mail" class="form-control" name="mail" id="mail" placeholder="exemple@exemple.com" aria-describedby="inputGroupPrepend3" required style="background-color: white;color:black;">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="col-md-6 mb-6">
+            <label for="tel">Tél</label>
+            <input type="tel" class="form-control " name="tel" id="tel" placeholder="+212 600 000 000" required style="background-color: white;color:black;">
+            {{-- is-invalid --}}
+            {{-- <div class="invalid-feedback">
+              Please provide a valid state.
+            </div> --}}
+          </div>
+          <div class="col-md-6 mb-6">
+            <label for="adress">Adress</label>
+            <input type="text" class="form-control " name="address" id="adress" placeholder="adress" required style="background-color: white;color:black;">
+            {{-- <div class="invalid-feedback">
+              Please provide a valid city.
+            </div> --}}
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-md-6 mb-6">
+            <label for="password">Mot de pass </label>
+            <input type="password" class="form-control " name="password" id="password" required style="background-color: white;color:black;">
+            {{-- is-invalid --}}
+            {{-- <div class="invalid-feedback">
+              Please provide a valid state.
+            </div> --}}
+          </div>
+          <div class="col-md-6 mb-6">
+            <label for="password_confirmation">Confirmation de mot de pass</label>
+            <input type="password" class="form-control " name="password_confirmation" id="password_confirmation"  required style="background-color: white;color:black;">
+            {{-- <div class="invalid-feedback">
+              Please provide a valid zip.
+            </div> --}}
+          </div>
+        </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Ajouter</button>
   </form>
           </div>
         </div>

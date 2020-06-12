@@ -17,6 +17,12 @@ class ProductController extends Controller
         return view('admin.product.product',['products'=>Product::all()]);
     }
 
+
+    public function __construct()
+    {
+        $this->middleware('role:superadministrator');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
