@@ -28,6 +28,9 @@ Route::patch('update/{user}','HomeController@update')->name('user.update');
 Route::get('contact','contactcontroller@create')->name('contact.create')->middleware('auth');
 Route::post('contact','contactcontroller@store')->name('contact.store');
 
+Route::get('/testcart','CardController@viewCart')->middleware('auth');
+Route::get('/checkout/{montant}','CardController@checkout')->name('cart.checkout');
+
 //admin
 
 Route::get('/admin','AdminController@index')->name('admin');
@@ -36,7 +39,8 @@ Route::resource('/admin/brand','BrandController')->except('create','show');
 Route::resource('/admin/category','CategoryController')->except('create','show');
 Route::resource('/admin/product','ProductController')->except('show');
 
-Route::get('/addToCart/{product}', 'ProductController@addToCart')->name('cart.add');
+
+Route::get('/addToCart/{product}', 'CardController@addToCart')->name('cart.add');
 
 Route::get('/shopping-cart', 'ProductController@showCart')->name('cart.show');
 
@@ -46,9 +50,13 @@ Route::get('/transport',function(){
     return view('transport.index');
 })->name('transport');
 
-Route::get('/admin/product/discount','ProductController@discountShow')->name('product.discountShow');
+/*Route::get('/admin/product/discount','ProductController@discountShow')->name('product.discountShow');
+Route::post('/admin/product/discount','ProductController@editDiscount')->name('product.editDiscount');*/
+Route::get('/admin/product/{product}/discount','ProductController@discount')->name('product.discount');
 Route::post('/admin/product/discount','ProductController@editDiscount')->name('product.editDiscount');
 Route::get('/shop',function(){
     return view('shop',['products'=>App\product::all(),'categories'=>App\category::all(),'brands'=>App\brand::all()]);
 })->name('shop_product');
 
+Route::get('/walo',function(){
+    return view('walo');});

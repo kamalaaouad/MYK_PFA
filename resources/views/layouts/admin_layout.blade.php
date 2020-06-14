@@ -74,7 +74,7 @@
                             <a class="dropdown-item" href="{{route('product.index')}}">Produits</a>
                             <a class="dropdown-item" href="{{route('brand.index')}}">Marques</a>
                             <a class="dropdown-item" href="{{route('category.index')}}">Categories</a>
-                            <a class="dropdown-item" href="{{route('product.discountShow')}}" >Solds</a>
+                         <!--   <a class="dropdown-item" href="" >Solds</a> -->
 
                         </div>
                     </li>
@@ -107,7 +107,7 @@
                     </li>
                 </ul>
                 @endif
-            
+
                 <ul class="navbar-nav">
 
                     @auth
