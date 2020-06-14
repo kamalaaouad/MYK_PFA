@@ -6,12 +6,13 @@
 
 @section('content')
     <!-- Start Side Menu -->
+    {{$cart = new App\Card(session()->get('card')) ?? ''}}
     <div class="side">
         <a href="#" class="close-side"><i class="fa fa-times"></i></a>
         <li class="cart-box">
-            @if(isset($card))
+            @if(isset($cart))
             <ul class="cart-list">
-                @foreach($card->items as $prodct)
+                @foreach($cart->items as $prodct)
                 <li>
                     <a href="#" class="photo"><img src="image/instagram/{{$prodct['image']}}" class="cart-thumb" alt="" /></a>
                     <h6><a href="#">{{$prodct['name']}} </a></h6>
@@ -20,7 +21,7 @@
                 @endforeach
                 <li class="total">
                     <a href="#" class="btn btn-default hvr-hover btn-cart">VIEW CART</a>
-                    <span class="float-right"><strong>Total</strong>: ${{$card->totalPrice}}</span>
+                    <span class="float-right"><strong>Total</strong>: {{$cart->totalPrice}}</span>
                 </li>
             </ul>
                 @else
@@ -131,13 +132,17 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <div class="offer-box-products">
-                        <img class="img-fluid" src="images/add-img-01.jpg" alt="" />
+                        <img class="img-fluid" src="image/instagram/1.jpg" alt="" />
+
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <div class="offer-box-products">
-                        <img class="img-fluid" src="images/add-img-02.jpg" alt="" />
+                        <img class="img-fluid" src="image/instagram/18.jpg" alt="" />
+
                     </div>
+
+
                 </div>
             </div>
         </div>
@@ -149,10 +154,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="title-all text-center">
-                        <h1>@foreach($products as $produit)
-                                {{$produit->name}}
-                            @endforeach</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet lacus enim.</p>
+                        
+                        <h1>Produits</h1>
                     </div>
                 </div>
             </div>
@@ -214,7 +217,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="title-all text-center">
-                        <h1>latest blog</h1>
+                        <h1>Offres specials</h1>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet lacus enim.</p>
                     </div>
                 </div>

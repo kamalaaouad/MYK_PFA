@@ -42,9 +42,13 @@ Route::get('/shopping-cart', 'ProductController@showCart')->name('cart.show');
 
 
 Route::resource('/admin/transport','TransportController');
-Route::get('/transport','TransportController@index')->name('transport');
+Route::get('/transport',function(){
+    return view('transport.index');
+})->name('transport');
 
 Route::get('/admin/product/discount','ProductController@discountShow')->name('product.discountShow');
 Route::post('/admin/product/discount','ProductController@editDiscount')->name('product.editDiscount');
-
+Route::get('/shop',function(){
+    return view('shop',['products'=>App\product::all(),'categories'=>App\category::all(),'brands'=>App\brand::all()]);
+})->name('shop_product');
 

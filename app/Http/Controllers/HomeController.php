@@ -39,4 +39,8 @@ class HomeController extends Controller
     public function edit(){
         return view('home');
     }
+
+    // public function shop(){
+    //     return view('shop');
+    // }
 }

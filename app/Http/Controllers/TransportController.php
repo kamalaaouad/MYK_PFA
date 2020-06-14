@@ -13,11 +13,11 @@ class TransportController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('role:transporteur|superadministrator');
+        $this->middleware('role:superadministrator');
     }
     public function index()
     {
-        return view('transport.index');
+        return view('admin.transport.transport');
     }
 
     /**

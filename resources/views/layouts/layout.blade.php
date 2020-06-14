@@ -139,11 +139,8 @@
                             <li><a href="shop-detail.html">Femme</a></li>
                         </ul>
                     </li>                        <li class="dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Bestseller</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="shop.html">Homme</a></li>
-                            <li><a href="shop-detail.html">Femme</a></li>
-                        </ul>
+                        <li class="nav-item"><a class="nav-link" href="{{route('shop_product')}}">Tous les produits</a></li>
+                        
                     </li>
                     <li class="dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Femme</a>
@@ -314,7 +311,7 @@
                     <div class="row">
                         <div class="col-lg-4 col-md-12 col-sm-12">
                             <div class="footer-widget">
-                                <h4>About Freshshop</h4>
+                                <h4>About MYK Store</h4>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
                             </div>

@@ -36,7 +36,7 @@
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars tm-nav-icon"></i>
             </button>
-
+            @if(auth()->user()->hasRole('superadministrator'))
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto h-100">
                     <li class="nav-item">
@@ -106,6 +106,8 @@
                         </div>
                     </li>
                 </ul>
+                @endif
+            
                 <ul class="navbar-nav">
 
                     @auth

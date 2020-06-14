@@ -96,6 +96,6 @@ class RegisterController extends Controller
         // $user->attachRole('transporteur');
 
         // return $user;
-        dd($data);
+        // dd($data);
     }
 }
