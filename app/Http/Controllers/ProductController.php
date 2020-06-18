@@ -122,6 +122,11 @@ class ProductController extends Controller
         return redirect()->route('product.index');
     }
 
+    public function discount($id){
+
+        return view('admin.product.discount',['toEdit'=>Product::find($id)]);
+    }
+
     public function addToCart(Product $product) {
 
         if (session()->has('card')) {

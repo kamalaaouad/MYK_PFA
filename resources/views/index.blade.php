@@ -5,48 +5,6 @@
 @endsection
 
 @section('content')
-    <!-- Start Side Menu -->
-    {{$cart = new App\Card(session()->get('card')) ?? ''}}
-    <div class="side">
-        <a href="#" class="close-side"><i class="fa fa-times"></i></a>
-        <li class="cart-box">
-            @if(isset($cart))
-            <ul class="cart-list">
-                @foreach($cart->items as $prodct)
-                <li>
-                    <a href="#" class="photo"><img src="image/instagram/{{$prodct['image']}}" class="cart-thumb" alt="" /></a>
-                    <h6><a href="#">{{$prodct['name']}} </a></h6>
-                    <p>{{$prodct['quantity']}}x - <span class="price">${{$prodct['price']}}</span></p>
-                </li>
-                @endforeach
-                <li class="total">
-                    <a href="#" class="btn btn-default hvr-hover btn-cart">VIEW CART</a>
-                    <span class="float-right"><strong>Total</strong>: {{$cart->totalPrice}}</span>
-                </li>
-            </ul>
-                @else
-                <p>There are no items in the cart</p>
-            @endif
-        </li>
-    </div>
-    <!-- End Side Menu -->
-    </nav>
-    <!-- End Navigation -->
-    </header>
-    <!-- End Main Top -->
-
-    <!-- Start Top Search -->
-    <div class="top-search">
-        <div class="container">
-            <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-search"></i></span>
-                <input type="text" class="form-control" placeholder="Search">
-                <span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
-            </div>
-        </div>
-    </div>
-    <!-- End Top Search -->
-
     <!-- Start Slider -->
     <div id="slides-shop" class="cover-slides">
         <ul class="slides-container">
@@ -154,7 +112,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="title-all text-center">
-                        
+
                         <h1>Produits</h1>
                     </div>
                 </div>

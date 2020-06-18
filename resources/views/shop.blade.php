@@ -130,7 +130,7 @@
                     </div>
 
                     <!-- product with description -->            
-                        {{-- @foreach ($products as $product)
+                        @foreach ($products as $product)
                         <div class="list-view-box">
                             <div class="row">
                                 <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
@@ -161,7 +161,7 @@
                                 </div>
                             </div>
                         </div>
-                        @endforeach --}}
+                        @endforeach
                     </div>
                 </div>
             </div>

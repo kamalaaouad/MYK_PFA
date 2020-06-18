@@ -71,7 +71,6 @@
                         <li><a href="#"><i class="fas fa-location-arrow"></i> Notre localisation</a></li>
                         <li><a href="{{route('contact.create')}}"><i class="fas fa-headset"></i> Contactez-nous</a></li>
                         <li><a href="#"><i class="fa fa-user s_color"></i> Mon compte</a></li>
-                        <li><a href="{{route('cart.show')}}"><i class="fa fa-shopping-bag"></i> genre panier</a></li>
                         <li><a href="#"> @if(session()->has('message'))
                                     {{session('message')}}
                           @endif
@@ -125,7 +124,7 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="#"><!-- <img src="images/logo.png" class="logo" alt="">--><h1>MYK</h1> </a>
+                <a class="navbar-brand" href="{{url('index')}}"><!-- <img src="images/logo.png" class="logo" alt="">--><h1>MYK</h1> </a>
             </div>
             <!-- End Header Navigation -->
 
@@ -134,15 +133,16 @@
                 <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
                     <li class="dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Nouveautés</a>
-                        <ul class="dropdown-menu">
+                        <!--<ul class="dropdown-menu">
                             <li><a href="shop.html">Homme</a></li>
                             <li><a href="shop-detail.html">Femme</a></li>
-                        </ul>
-                    </li>                        <li class="dropdown">
-                        <li class="nav-item"><a class="nav-link" href="{{route('shop_product')}}">Tous les produits</a></li>
-                        
+                        </ul>-->
                     </li>
                     <li class="dropdown">
+                        <li class="nav-item"><a class="nav-link" href="{{route('shop_product')}}">Tous les produits</a></li>
+
+                    </li>
+                    <!-- <li class="dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Femme</a>
                         <ul class="dropdown-menu">
                             <li><a href="shop.html">Sidebar Shop</a></li>
@@ -164,7 +164,7 @@
                             <li><a href="my-account.html">Mon compte</a></li>
                             <li><a href="wishlist.html">Wishlist</a></li>
                         </ul>
-                    </li>
+                    </li> -->
                     <li class="nav-item"><a class="nav-link" href="contact-us.html">Rendez vous</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">A propos nous</a></li>
 
@@ -224,8 +224,50 @@
             <!-- End Atribute Navigation -->
         </div>
 
-        @yield('content')
+        <!-- Start Side Menu -->
 
+        <div class="side">
+            {{$cart = new App\Card(session()->get('card'))}}
+            <a href="#" class="close-side"><i class="fa fa-times"></i></a>
+            <li class="cart-box">
+                @if(count($cart->items) != 0 )
+                    <ul class="cart-list">
+                        @foreach($cart->items as $prodct)
+                            <li>
+                                <a href="#" class="photo"><img src="image/instagram/{{$prodct['image']}}" class="cart-thumb" alt="" /></a>
+                                <h6><a href="#">{{$prodct['name']}} </a></h6>
+                                <p>{{$prodct['quantity']}}x - <span class="price">${{$prodct['price']}}</span></p>
+                            </li>
+                        @endforeach
+                        <li class="total">
+                            <a href="{{url('testcart')}}" class="btn btn-default hvr-hover btn-cart">VIEW CART</a>
+                            <span class="float-right"><strong>Total</strong>: {{$cart->totalPrice}}</span>
+                        </li>
+                    </ul>
+                @else
+                    <p>There are no items in the cart</p>
+                @endif
+            </li>
+        </div>
+        <!-- End Side Menu -->
+    </nav>
+    <!-- End Navigation -->
+</header>
+<!-- End Main Top -->
+
+<!-- Start Top Search -->
+<div class="top-search">
+    <div class="container">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-search"></i></span>
+            <input type="text" class="form-control" placeholder="Search">
+            <span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
+        </div>
+    </div>
+</div>
+<!-- End Top Search -->
+
+        @yield('content')
     <!-- Start Instagram Feed  -->
         <div class="instagram-box">
             <div class="main-instagram owl-carousel owl-theme">
@@ -375,7 +417,7 @@
         <script src="{{asset('js/form-validator.min.js')}}"></script>
         <script src="{{asset('js/contact-form-script.js')}}"></script>
         <script src="{{asset('js/custom.js')}}"></script>
-        
+
 </body>
 
 </html>
