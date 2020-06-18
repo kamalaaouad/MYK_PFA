@@ -133,17 +133,10 @@
                 <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
                     <li class="dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Nouveautés</a>
-                        <!--<ul class="dropdown-menu">
-                            <li><a href="shop.html">Homme</a></li>
-                            <li><a href="shop-detail.html">Femme</a></li>
-
-
-
                     </li>
-                    <li class="dropdown">
-                        <li class="nav-item"><a class="nav-link" href="{{route('shop_product')}}">Tous les produits</a></li>
 
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('shop_product')}}">Tous les produits</a></li>
+
                     <!-- <li class="dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Femme</a>
                         <ul class="dropdown-menu">
@@ -227,6 +220,7 @@
         </div>
         <!-- Start Side Menu -->
         <div class="side">
+
             {{$cart = new App\Card(session()->get('card'))}}
             <a href="#" class="close-side"><i class="fa fa-times"></i></a>
             <li class="cart-box">
@@ -427,7 +421,7 @@
 
         <!-- Start copyright  -->
         <div class="footer-copyright">
-            <p class="footer-company">All Rights Reserved. &copy; 2020 <a href="index.html">MYK BEAUTY</p>
+            <p class="footer-company">All Rights Reserved. &copy; 2020 <a href="{{url('index')}}">MYK BEAUTY</a></p>
         </div>
         <!-- End copyright  -->
 

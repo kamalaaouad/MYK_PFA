@@ -13,7 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/index','testcontroller@index');
-Route::view('/test','test');
+Route::get('/test',function(){
+    return view('test',['products'=>App\product::all(),'categories'=>App\category::all(),'brands'=>App\brand::all()]);
+});
 //Route::view('/index','index ');
 
 Route::get('/testcart','CardController@viewCart')->middleware('auth');
@@ -62,5 +64,6 @@ Route::get('/shop',function(){
     return view('shop',['products'=>App\product::all(),'categories'=>App\category::all(),'brands'=>App\brand::all()]);
 })->name('shop_product');
 
-Route::get('/walo',function(){
-    return view('walo');});
+Route::get('/shop/category/{id}','ProductController@getByCategory')->name('product_by_category');
+Route::get('/shop/brand/{id}','ProductController@getByBrand')->name('product_by_brand');
+Route::post('/shop/search','ProductController@searchByName')->name('product_searched');
