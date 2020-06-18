@@ -5,49 +5,6 @@
 @endsection
 
 @section('content')
-<div class="side">
-    <a href="#" class="close-side"><i class="fa fa-times"></i></a>
-    <li class="cart-box">
-        <ul class="cart-list">
-            <li>
-                <a href="#" class="photo"><img src="images/img-pro-01.jpg" class="cart-thumb" alt="" /></a>
-                <h6><a href="#">Delica omtantur </a></h6>
-                <p>1x - <span class="price">$80.00</span></p>
-            </li>
-            <li>
-                <a href="#" class="photo"><img src="images/img-pro-02.jpg" class="cart-thumb" alt="" /></a>
-                <h6><a href="#">Omnes ocurreret</a></h6>
-                <p>1x - <span class="price">$60.00</span></p>
-            </li>
-            <li>
-                <a href="#" class="photo"><img src="images/img-pro-03.jpg" class="cart-thumb" alt="" /></a>
-                <h6><a href="#">Agam facilisis</a></h6>
-                <p>1x - <span class="price">$40.00</span></p>
-            </li>
-            <li class="total">
-                <a href="#" class="btn btn-default hvr-hover btn-cart">VIEW CART</a>
-                <span class="float-right"><strong>Total</strong>: $180.00</span>
-            </li>
-        </ul>
-    </li>
-</div>
-<!-- End Side Menu -->
-</nav>
-<!-- End Navigation -->
-</header>
-<!-- End Main Top -->
-
-<!-- Start Top Search -->
-<div class="top-search">
-<div class="container">
-<div class="input-group">
-    <span class="input-group-addon"><i class="fa fa-search"></i></span>
-    <input type="text" class="form-control" placeholder="Search">
-    <span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
-</div>
-</div>
-</div>
-<!-- End Top Search -->
 
 <!-- Start All Title Box -->
 <div class="all-title-box">
@@ -101,7 +58,7 @@
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane fade show active" id="grid-view">
                         <div class="row">
-                           
+
                             @foreach ($products as $product)
                             <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                 <div class="products-single fix">
@@ -124,12 +81,12 @@
                                         <h5>{{$product->price}} Dh</h5>
                                     </div>
                                 </div>
-                            </div> 
-                            @endforeach   
+                            </div>
+                            @endforeach
                         </div>
                     </div>
 
-                    <!-- product with description -->            
+                    <!-- product with description -->
                         @foreach ($products as $product)
                         <div class="list-view-box">
                             <div class="row">
@@ -192,7 +149,7 @@
                         </div>
                     </div>
                     <div class="list-group-collapse sub-men">
-                        <a class="list-group-item list-group-item-action" href="#sub-men2" data-toggle="collapse" aria-expanded="false" aria-controls="sub-men2">Marques 
+                        <a class="list-group-item list-group-item-action" href="#sub-men2" data-toggle="collapse" aria-expanded="false" aria-controls="sub-men2">Marques
                     <small class="text-muted">(50)</small>
                     </a>
                         <div class="collapse" id="sub-men2" data-parent="#list-group-men">
@@ -202,7 +159,7 @@
                                 @endforeach                            </div>
                         </div>
                     </div>
-                
+
                 </div>
             </div>
             <div class="filter-price-left">

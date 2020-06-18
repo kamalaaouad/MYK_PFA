@@ -113,7 +113,8 @@
                     @endif
                 </div>
             </div>
-            <div class="col-12 d-flex shopping-box"><a href="{{route('cart.checkout',$card->PriceHorstx)}}" class="ml-auto btn hvr-hover">Checkout</a> </div>
+
+            <div class="col-12 d-flex shopping-box"><a href="{{--route('cart.checkout',$card->PriceHorstx)--}}" class="ml-auto btn hvr-hover">Checkout</a> </div>
         </div>
 
     </div>

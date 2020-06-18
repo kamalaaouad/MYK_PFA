@@ -136,7 +136,9 @@
                         <!--<ul class="dropdown-menu">
                             <li><a href="shop.html">Homme</a></li>
                             <li><a href="shop-detail.html">Femme</a></li>
-                        </ul>-->
+
+
+
                     </li>
                     <li class="dropdown">
                         <li class="nav-item"><a class="nav-link" href="{{route('shop_product')}}">Tous les produits</a></li>
@@ -223,6 +225,35 @@
             </div>
             <!-- End Atribute Navigation -->
         </div>
+        <!-- Start Side Menu -->
+        {{$cart = new App\Card(session()->get('card'))}}
+        <div class="side">
+            <a href="#" class="close-side"><i class="fa fa-times"></i></a>
+            <li class="cart-box">
+                @if(count($cart->items) != 0 )
+                    <ul class="cart-list">
+                        @foreach($cart->items as $prodct)
+                            <li>
+                                <a href="#" class="photo"><img src="image/instagram/{{$prodct['image']}}" class="cart-thumb" alt="" /></a>
+                                <h6><a href="#">{{$prodct['name']}} </a></h6>
+                                <p>{{$prodct['quantity']}}x - <span class="price">${{$prodct['price']}}</span></p>
+                            </li>
+                        @endforeach
+                        <li class="total">
+                            <a href="{{url('testcart')}}" class="btn btn-default hvr-hover btn-cart">VIEW CART</a>
+                            <span class="float-right"><strong>Total</strong>: {{$cart->totalPrice}}</span>
+                        </li>
+                    </ul>
+                @else
+                    <p>There are no items in the cart</p>
+                @endif
+            </li>
+        </div>
+        <!-- End Side Menu -->
+    </nav>
+    <!-- End Navigation -->
+</header>
+<!-- End Main Top -->
 
         <!-- Start Side Menu -->
 
@@ -254,6 +285,7 @@
     <!-- End Navigation -->
 </header>
 <!-- End Main Top -->
+
 
 <!-- Start Top Search -->
 <div class="top-search">
