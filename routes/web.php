@@ -13,7 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/index','testcontroller@index');
+Route::view('/test','test');
 //Route::view('/index','index ');
+
+Route::get('/testcart','CardController@viewCart')->middleware('auth');
+Route::get('/checkout/{montant}','CardController@checkout')->name('cart.checkout');
 
 Auth::routes();
 
