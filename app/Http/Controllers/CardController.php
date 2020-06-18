@@ -85,6 +85,7 @@ class CardController extends Controller
         //
     }
 
+
     public function addToCart(Product $product) {
 
         if (session()->has('card')) {

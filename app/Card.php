@@ -10,6 +10,9 @@ class Card extends Model
     public $items = [];
     public $totalQty;
     public $totalPrice;
+    public $PriceHorstx;
+    public $alltva;
+    public $totdiscount;
 
     public function __Construct($card = null)
     {
@@ -18,11 +21,17 @@ class Card extends Model
             $this->items = $card->items;
             $this->totalQty = $card->totalQty;
             $this->totalPrice = $card->totalPrice;
+            $this->PriceHorstx=$card->PriceHorstx;
+            $this->alltva=$card->alltva;
+            $this->totdiscount=$card->totdiscount;
         } else {
 
             $this->items = [];
             $this->totalQty = 0;
             $this->totalPrice = 0;
+            $this->PriceHorstx=0;
+            $this->alltva=0;
+            $this->totdiscount=0;
         }
     }
 
@@ -32,6 +41,8 @@ class Card extends Model
             'name' => $product->title,
             'price' => $product->price,
             'quantity' => 0,
+            'TVA'=>$product->TVA,
+            'discount'=>$product->discount,
             'image' => $product->image,
         ];
 
@@ -39,11 +50,17 @@ class Card extends Model
             $this->items[$product->id] = $item;
             $this->totalQty += 1;
             $this->totalPrice += $product->price;
+            $this->alltva +=$product->TVA;
+            $this->totdiscount +=$product->discount;
+            $this->PriceHorstx=($this->totalPrice + $this->alltva - $this->totdiscount);
 
         } else {
 
             $this->totalQty += 1;
             $this->totalPrice += $product->price;
+            $this->alltva +=$product->TVA;
+            $this->totdiscount +=$product->discount;
+            $this->PriceHorstx=($this->totalPrice + $this->alltva - $this->totdiscount);
         }
 
         $this->items[$product->id]['quantity'] += 1;

@@ -124,7 +124,7 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="#"><!-- <img src="images/logo.png" class="logo" alt="">--><h1>MYK</h1> </a>
+                <a class="navbar-brand" href="{{url('index')}}"><!-- <img src="images/logo.png" class="logo" alt="">--><h1>MYK</h1> </a>
             </div>
             <!-- End Header Navigation -->
 
@@ -133,15 +133,18 @@
                 <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
                     <li class="dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Nouveautés</a>
-                        <ul class="dropdown-menu">
+                        <!--<ul class="dropdown-menu">
                             <li><a href="shop.html">Homme</a></li>
                             <li><a href="shop-detail.html">Femme</a></li>
-                        </ul>
-                    </li>                        <li class="dropdown">
-                        <li class="nav-item"><a class="nav-link" href="{{route('shop_product')}}">Tous les produits</a></li>
+
+
 
                     </li>
                     <li class="dropdown">
+                        <li class="nav-item"><a class="nav-link" href="{{route('shop_product')}}">Tous les produits</a></li>
+
+                    </li>
+                    <!-- <li class="dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Femme</a>
                         <ul class="dropdown-menu">
                             <li><a href="shop.html">Sidebar Shop</a></li>
@@ -163,7 +166,7 @@
                             <li><a href="my-account.html">Mon compte</a></li>
                             <li><a href="wishlist.html">Wishlist</a></li>
                         </ul>
-                    </li>
+                    </li> -->
                     <li class="nav-item"><a class="nav-link" href="contact-us.html">Rendez vous</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">A propos nous</a></li>
 
@@ -252,6 +255,38 @@
 </header>
 <!-- End Main Top -->
 
+        <!-- Start Side Menu -->
+
+        <div class="side">
+            {{$cart = new App\Card(session()->get('card'))}}
+            <a href="#" class="close-side"><i class="fa fa-times"></i></a>
+            <li class="cart-box">
+                @if(count($cart->items) != 0 )
+                    <ul class="cart-list">
+                        @foreach($cart->items as $prodct)
+                            <li>
+                                <a href="#" class="photo"><img src="image/instagram/{{$prodct['image']}}" class="cart-thumb" alt="" /></a>
+                                <h6><a href="#">{{$prodct['name']}} </a></h6>
+                                <p>{{$prodct['quantity']}}x - <span class="price">${{$prodct['price']}}</span></p>
+                            </li>
+                        @endforeach
+                        <li class="total">
+                            <a href="{{url('testcart')}}" class="btn btn-default hvr-hover btn-cart">VIEW CART</a>
+                            <span class="float-right"><strong>Total</strong>: {{$cart->totalPrice}}</span>
+                        </li>
+                    </ul>
+                @else
+                    <p>There are no items in the cart</p>
+                @endif
+            </li>
+        </div>
+        <!-- End Side Menu -->
+    </nav>
+    <!-- End Navigation -->
+</header>
+<!-- End Main Top -->
+
+
 <!-- Start Top Search -->
 <div class="top-search">
     <div class="container">
@@ -263,6 +298,7 @@
     </div>
 </div>
 <!-- End Top Search -->
+
         @yield('content')
     <!-- Start Instagram Feed  -->
         <div class="instagram-box">
