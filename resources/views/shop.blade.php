@@ -26,8 +26,8 @@
 <div class="shop-box-inner">
 <div class="container">
 <div class="row">
-    <div class="col-xl-9 col-lg-9 col-sm-12 col-xs-12 shop-content-right">
-        <div class="right-product-box">
+        <div class="col-xl-9 col-lg-9 col-sm-12 col-xs-12 shop-content-right">
+            <div class="right-product-box">
             <div class="product-item-filter row">
                 <div class="col-12 col-sm-8 text-center text-sm-left">
                     <div class="toolbar-sorter-right">

@@ -223,8 +223,8 @@
             <!-- End Atribute Navigation -->
         </div>
         <!-- Start Side Menu -->
-        {{$cart = new App\Card(session()->get('card'))}}
         <div class="side">
+            {{$cart = new App\Card(session()->get('card'))}}
             <a href="#" class="close-side"><i class="fa fa-times"></i></a>
             <li class="cart-box">
                 @if(count($cart->items) != 0 )
