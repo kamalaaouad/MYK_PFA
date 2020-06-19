@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-
     <!-- Start All Title Box -->
     <div class="all-title-box">
         <div class="container">
@@ -72,7 +71,7 @@
                                                                 <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
                                                                 <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
                                                             </ul>
-                                                            <a class="cart" href="{{ route('cart.add',$product)}}">Add to Cart</a>
+                                                            <a class="cart" href="#">Add to Cart</a>
                                                         </div>
                                                     </div>
                                                     <div class="why-text">
@@ -111,7 +110,7 @@
                                                         <h4>{{$product->name}}</h4>
                                                         <h5> <del>1000.00 Dh</del>{{$product->price}} Dh</h5>
                                                         <p>{{$product->description}}</p>
-                                                        <a class="btn hvr-hover" href="{{ route('cart.add',$product)}}">Add to Cart</a>
+                                                        <a class="btn hvr-hover" href="#">Add to Cart</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -125,7 +124,7 @@
                 <div class="col-xl-3 col-lg-3 col-sm-12 col-xs-12 sidebar-shop-left">
                     <div class="product-categori">
                         <div class="search-product">
-                            <form method="post" action="{{--route('product_searched')--}}">
+                            <form method="post" action="{{route('product_searched')}}">
                                 @csrf
                                 <input class="form-control" name="search" placeholder="Search here..." type="text">
                                 <button type="submit"> <i class="fa fa-search"></i> </button>
@@ -142,7 +141,7 @@
                                     <div class="collapse show" id="sub-men1" data-parent="#list-group-men">
                                         <div class="list-group">
                                             @foreach ($categories as $category)
-                                                <a href="{{--route('product_by_category',$category->id--)--}}" class="list-group-item list-group-item-action">{{$category->name}}<small class="text-muted"></small></a>
+                                                <a href="{{route('product_by_category',$category->id)}}" class="list-group-item list-group-item-action">{{$category->name}}<small class="text-muted"></small></a>
                                             @endforeach
                                         </div>
                                     </div>
@@ -154,7 +153,7 @@
                                     <div class="collapse" id="sub-men2" data-parent="#list-group-men">
                                         <div class="list-group">
                                             @foreach ($brands as $brand)
-                                                <a href="{{--route('product_by_brand',$brand->id)--}}" class="list-group-item list-group-item-action">{{$brand->name}}<small class="text-muted"></small></a>
+                                                <a href="{{route('product_by_brand',$brand->id)}}" class="list-group-item list-group-item-action">{{$brand->name}}<small class="text-muted"></small></a>
                                             @endforeach
                                         </div>
                                     </div>
@@ -179,4 +178,5 @@
         </div>
     </div>
     <!-- End Shop Page -->
+
 @endsection
