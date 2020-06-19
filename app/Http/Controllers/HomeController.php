@@ -6,7 +6,7 @@ use Auth;
 use http\Client\Curl\User;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class   HomeController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -33,6 +33,7 @@ class HomeController extends Controller
 
     public function logout(Request $request) {
         Auth::logout();
+        $request->session()->forget('card');
         session()->flash('message','goodbye Mr');
         return redirect('/index')->with("data",session()->get('message'));
     }

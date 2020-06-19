@@ -38,7 +38,7 @@ class LoginController extends Controller
             return redirect('/transport');
         }
         if($user->hasRole('user')){
-            return redirect('/user');
+            return redirect('/index');
         }
 
     }

@@ -96,7 +96,7 @@ class CardController extends Controller
         $card->add($product);
         //dd($cart);
         session()->put('card', $card);
-        return redirect('index');
+        return redirect()->back();
     }
 
     public function viewCart() {
@@ -110,6 +110,26 @@ class CardController extends Controller
         return view('carts.cart', compact('card'));
     }
     public function checkout($montant){
-        return $montant;
+        return view('carts.checkout',compact('montant'));
+    }
+
+    public function deletecart(Request $request,$id_product){
+
+        $card=session()->get('card');
+        foreach ($card->items  as   $itm)
+        {
+
+            if($itm['id'] == $id_product){
+                unset(session()->get('card')->items[$id_product]);
+                $card->totalQty = $card->totalQty - $itm['quantity'] ;
+                $card->totalPrice = $card->totalPrice - $itm['price'] * $itm['quantity'];
+
+            }
+        }
+        //$this->addToCart();
+
+        session()->put('card',$card);
+
+        return redirect()->back();
     }
 }
