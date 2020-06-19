@@ -137,6 +137,7 @@
 
                     <li class="nav-item"><a class="nav-link" href="{{route('shop_product')}}">Tous les produits</a></li>
 
+
                     <!-- <li class="dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Femme</a>
                         <ul class="dropdown-menu">
@@ -210,7 +211,8 @@
                     <li class="side-menu">
                         <a href="#">
                             <i class="fa fa-shopping-bag"></i>
-                            <span class="badge">{{ session()->has('card') ? session()->get('card')->totalQty : '0' }}</span>
+                            <span class="badge">
+                                {{ session()->has('card') ? session()->get('card')->totalQty : '0' }}</span>
                             <p>Mon panier</p>
                         </a>
                     </li>
@@ -252,8 +254,8 @@
         <!-- Start Side Menu -->
 
         <div class="side">
-            {{$cart = new App\Card(session()->get('card'))}}
             <a href="#" class="close-side"><i class="fa fa-times"></i></a>
+            {{$cart = new App\Card(session()->get('card'))}}
             <li class="cart-box">
                 @if(count($cart->items) != 0 )
                     <ul class="cart-list">
@@ -266,7 +268,7 @@
                         @endforeach
                         <li class="total">
                             <a href="{{url('testcart')}}" class="btn btn-default hvr-hover btn-cart">VIEW CART</a>
-                            <span class="float-right"><strong>Total</strong>: {{$cart->totalPrice}}</span>
+                            <span class="float-right"><strong>Total</strong>: {{$cart->totalPrice}} $</span>
                         </li>
                     </ul>
                 @else
@@ -299,7 +301,7 @@
             <div class="main-instagram owl-carousel owl-theme">
                 <div class="item">
                     <div class="ins-inner-box">
-                        <img src="image/instagram/4.jpg" alt="" />
+                        <img src="image/instagram/6.jpg" alt="" />
                         <div class="hov-in">
                             <a href="#"><i class="fab fa-instagram"></i></a>
                         </div>
@@ -440,12 +442,12 @@
         <script src="{{asset('js/isotope.min.js')}}"></script>
         <script src="{{asset('js/owl.carousel.min.js')}}"></script>
         <script src="{{asset('js/baguetteBox.min.js')}}"></script>
+        <script src="{{asset('js/jquery-ui.js')}}"></script>
+        <script src="{{asset('js/jquery.nicescroll.min.js')}}"></script>
         <script src="{{asset('js/form-validator.min.js')}}"></script>
         <script src="{{asset('js/contact-form-script.js')}}"></script>
         <script src="{{asset('js/custom.js')}}"></script>
 
 </body>
-
-</html>
 
 </html>

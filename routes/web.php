@@ -16,10 +16,13 @@ Route::get('/index','testcontroller@index');
 Route::get('/test',function(){
     return view('test',['products'=>App\product::all(),'categories'=>App\category::all(),'brands'=>App\brand::all()]);
 });
+
+
+Route::get('delete/{id_product}','CardController@deletecart')->name('delete_cart');
 //Route::view('/index','index ');
 
 Route::get('/testcart','CardController@viewCart')->middleware('auth');
-Route::get('/checkout/{montant}','CardController@checkout')->name('cart.checkout');
+Route::get('/checkout/{montant}','CardController@checkout')->name('cart.checkout','montant');
 
 Auth::routes();
 
