@@ -38,6 +38,8 @@
                         </tr>
                         </thead>
                         <tbody>
+                        @if(session()->has('card'))
+                            @if(isset($card->items))
                         @foreach($card->items as $prodct)
                             <tr>
                                 <td class="thumbnail-img">
@@ -53,14 +55,16 @@
                                 <td class="price-pr">
                                     <p>$ {{$prodct['price']}}</p>
                                 </td>
-                                <td class="quantity-box"><input type="number" size="4" value="{{$prodct['quantity']}}" min="0" step="1" class="c-input-text qty text"></td>
+                                <td class="quantity-box"><input type="number" size="4" value="{{$prodct['quantity']}}" min="1" max="{{$prodct['stock']}}" step="1" class="c-input-text qty text"></td>
                                 <td class="remove-pr">
-                                    <a href="#">
+                                    <a href="{{route('delete_cart',$prodct['id'])}}">
                                         <i class="fas fa-times"></i>
                                     </a>
                                 </td>
                             </tr>
                         @endforeach
+                                @endif
+                        @endif
                         </tbody>
                     </table>
                 </div>
@@ -84,8 +88,10 @@
                 </div>
             </div>
         </div>
+        @if(session()->has('card'))
+            @if(isset($card->items))
 
-        <div class="row my-5">
+            <div class="row my-5">
             <div class="col-lg-8 col-sm-12"></div>
             <div class="col-lg-4 col-sm-12">
                 <div class="order-box">
@@ -117,6 +123,9 @@
             <div class="col-12 d-flex shopping-box"><a href="{{--route('cart.checkout',$card->PriceHorstx)--}}" class="ml-auto btn hvr-hover">Checkout</a> </div>
         </div>
 
+
+                @endif
+@endif
     </div>
 </div>
 <!-- End Cart -->

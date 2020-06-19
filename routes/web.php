@@ -14,10 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/index','testcontroller@index');
 Route::view('/test','test');
+
+Route::get('delete/{id_product}','CardController@deletecart')->name('delete_cart');
 //Route::view('/index','index ');
 
 Route::get('/testcart','CardController@viewCart')->middleware('auth');
-Route::get('/checkout/{montant}','CardController@checkout')->name('cart.checkout');
+Route::get('/checkout/{montant}','CardController@checkout')->name('cart.checkout','montant');
 
 Auth::routes();
 
