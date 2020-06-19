@@ -70,3 +70,5 @@ Route::get('/shop',function(){
 Route::get('/shop/category/{id}','ProductController@getByCategory')->name('product_by_category');
 Route::get('/shop/brand/{id}','ProductController@getByBrand')->name('product_by_brand');
 Route::post('/shop/search','ProductController@searchByName')->name('product_searched');
+Route::post('/shop/price','ProductController@getByPrice')->name('product_by_price');
+
