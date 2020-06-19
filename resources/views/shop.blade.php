@@ -5,21 +5,59 @@
 @endsection
 
 @section('content')
-    <!-- Start All Title Box -->
-    <div class="all-title-box">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2>Shop</h2>
-                    <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Shop</li>
+
+<!-- Start All Title Box -->
+<div class="all-title-box">
+<div class="container">
+<div class="row">
+    <div class="col-lg-12">
+        <h2>Shop</h2>
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active">Shop</li>
+        </ul>
+    </div>
+</div>
+</div>
+</div>
+<!-- End All Title Box -->
+
+<!-- Start Shop Page  -->
+<div class="shop-box-inner">
+<div class="container">
+<div class="row">
+    <div class="col-xl-9 col-lg-9 col-sm-12 col-xs-12 shop-content-right">
+        <div class="right-product-box">
+            <div class="product-item-filter row">
+                <div class="col-12 col-sm-8 text-center text-sm-left">
+                    <div class="toolbar-sorter-right">
+                        <span>Sort by </span>
+                        <select id="basic" class="selectpicker show-tick form-control" data-placeholder="$ USD">
+                        <option data-display="Select">Nothing</option>
+                        <option value="1">Popularity</option>
+                        <option value="2">High Price → High Price</option>
+                        <option value="3">Low Price → High Price</option>
+                        <option value="4">Best Selling</option>
+                    </select>
+                    </div>
+                    <p>Showing all 4 results</p>
+                </div>
+                <div class="col-12 col-sm-4 text-center text-sm-right">
+                    <ul class="nav nav-tabs ml-auto">
+                        <li>
+                            <a class="nav-link active" href="#grid-view" data-toggle="tab"> <i class="fa fa-th"></i> </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#list-view" data-toggle="tab"> <i class="fa fa-list-ul"></i> </a>
+                        </li>
+
                     </ul>
                 </div>
             </div>
         </div>
     </div>
     <!-- End All Title Box -->
+
 
     <!-- Start Shop Page  -->
     <div class="shop-box-inner">
@@ -52,7 +90,6 @@
                                 </ul>
                             </div>
                         </div>
-
                         <div class="product-categorie-box">
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane fade show active" id="grid-view">
@@ -79,6 +116,16 @@
                                                         <h5>{{$product->price}} Dh</h5>
                                                     </div>
                                                 </div>
+
+                    <!-- product with description -->
+                        @foreach ($products as $product)
+                        <div class="list-view-box">
+                            <div class="row">
+                                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
+                                    <div class="products-single fix">
+                                        <div class="box-img-hover">
+                                            <div class="type-lb">
+                                                <p class="sale">Sale</p>
                                             </div>
                                         @endforeach
                                     </div>
@@ -140,7 +187,6 @@
                                     </a>
                                     <div class="collapse show" id="sub-men1" data-parent="#list-group-men">
                                         <div class="list-group">
-                                            <a href="#" class="list-group-item list-group-item-action active">Fruits 1 <small class="text-muted">(50)</small></a>
                                             @foreach ($categories as $category)
                                                 <a href="#" class="list-group-item list-group-item-action">{{$category->name}}<small class="text-muted">(10)</small></a>
                                             @endforeach
@@ -164,23 +210,40 @@
                                 <a href="#" class="list-group-item list-group-item-action"> Grocery <small class="text-muted">(22)</small></a>-->
                             </div>
                         </div>
-                        <div class="filter-price-left">
-                            <div class="title-left">
-                                <h3>Price</h3>
-                            </div>
-                            <div class="price-box-slider">
-                                <div id="slider-range"></div>
-                                <p>
-                                    <input type="text" id="amount" readonly style="border:0; color:#fbb714; font-weight:bold;">
-                                    <button class="btn hvr-hover" type="submit">Filter</button>
-                                </p>
-                            </div>
+
+                    </div>
+                    <div class="list-group-collapse sub-men">
+                        <a class="list-group-item list-group-item-action" href="#sub-men2" data-toggle="collapse" aria-expanded="false" aria-controls="sub-men2">Marques
+                    <small class="text-muted">(50)</small>
+                    </a>
+                        <div class="collapse" id="sub-men2" data-parent="#list-group-men">
+                            <div class="list-group">
+                                @foreach ($brands as $brand)
+                                <a href="#" class="list-group-item list-group-item-action">{{$brand->name}}<small class="text-muted">(10)</small></a>
+                                @endforeach                            </div>
                         </div>
                     </div>
+
+                </div>
+            </div>
+            <div class="filter-price-left">
+                <div class="title-left">
+                    <h3>Price</h3>
+                </div>
+                <div class="price-box-slider">
+                    <div id="slider-range"></div>
+                    <p>
+                        <input type="text" id="amount" readonly style="border:0; color:#fbb714; font-weight:bold;">
+                        <button class="btn hvr-hover" type="submit">Filter</button>
+                    </p>
                 </div>
             </div>
         </div>
     </div>
     <!-- End Shop Page -->
-
+                            
+</div>
+</div>
+</div>
+<!-- End Shop Page -->
 @endsection
