@@ -23,7 +23,7 @@ class ProductController extends Controller
 
     public function __construct()
     {
-        $this->middleware('role:superadministrator')->except('getByCategory','getByBrand','searchByName');
+        $this->middleware('role:superadministrator')->except('getByCategory','getByBrand','searchByName','getByPrice');
     }
 
     /**
@@ -168,12 +168,18 @@ class ProductController extends Controller
         $products1 = product::where('name','like','%'.$searched.'%')->get();
         $products2= product::whereHas('category', function($q) use ($searched) { $q->where('name','like','%'.$searched.'%');})->get();
         $products3= product::whereHas('brand', function($q) use ($searched) { $q->where('name','like','%'.$searched.'%');})->get();
-
         $products1 = $products1->merge($products2);
         $products1 = $products1->merge($products3);
         //dd($products1);
-
         return view('shop',['products'=>$products1 ,'categories'=>category::all(),'brands'=>brand::all()]);
+    }
+
+    public function getByPrice(Request $request){
+        $limits = explode('-',$request->input('price_filter'));
+        $min = (int)substr($limits[0], 1); // eliminer le $ au debut d'ou '1'
+        $max = (int)substr($limits[1], 2); // eliminer l'espace et le $ au debut d'ou '2'
+        //dd($min ,$max );
+        return  view('shop',['products'=>Product::where([['price','>=',$min],['price','<=',$max]])->get(),'categories'=>category::all(),'brands'=>brand::all()]);
     }
 
 

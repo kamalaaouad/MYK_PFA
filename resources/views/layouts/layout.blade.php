@@ -230,7 +230,7 @@
                     <ul class="cart-list">
                         @foreach($cart->items as $prodct)
                             <li>
-                                <a href="#" class="photo"><img src="image/instagram/{{$prodct['image']}}" class="cart-thumb" alt="" /></a>
+                                <a href="#" class="photo"><img src="{{asset('image/instagram/'.$prodct['image'])}}" class="cart-thumb" alt="" /></a>
                                 <h6><a href="#">{{$prodct['name']}} </a></h6>
                                 <p>{{$prodct['quantity']}}x - <span class="price">${{$prodct['price']}}</span></p>
                             </li>
@@ -261,7 +261,7 @@
                     <ul class="cart-list">
                         @foreach($cart->items as $prodct)
                             <li>
-                                <a href="#" class="photo"><img src="image/instagram/{{$prodct['image']}}" class="cart-thumb" alt="" /></a>
+                                <a href="#" class="photo"><img src="{{asset('image/instagram/'.$prodct['image'])}}" class="cart-thumb" alt="" /></a>
                                 <h6><a href="#">{{$prodct['name']}} </a></h6>
                                 <p>{{$prodct['quantity']}}x - <span class="price">${{$prodct['price']}}</span></p>
                             </li>
@@ -301,7 +301,7 @@
             <div class="main-instagram owl-carousel owl-theme">
                 <div class="item">
                     <div class="ins-inner-box">
-                        <img src="image/instagram/6.jpg" alt="" />
+                        <img src="{{asset('image/instagram/6.jpg')}}" alt="" />
                         <div class="hov-in">
                             <a href="#"><i class="fab fa-instagram"></i></a>
                         </div>
@@ -309,7 +309,7 @@
                 </div>
                 <div class="item">
                     <div class="ins-inner-box">
-                        <img src="image/instagram/3.jpg" alt="" />
+                        <img src="{{asset('image/instagram/3.jpg')}}" alt="" />
                         <div class="hov-in">
                             <a href="#"><i class="fab fa-instagram"></i></a>
                         </div>
@@ -317,7 +317,7 @@
                 </div>
                 <div class="item">
                     <div class="ins-inner-box">
-                        <img src="image/instagram/2.jpg" alt="" />
+                        <img src="{{asset('image/instagram/2.jpg')}}" alt="" />
                         <div class="hov-in">
                             <a href="#"><i class="fab fa-instagram"></i></a>
                         </div>
@@ -325,7 +325,7 @@
                 </div>
                 <div class="item">
                     <div class="ins-inner-box">
-                        <img src="image/instagram/1.jpg" alt="" />
+                        <img src="{{asset('image/instagram/1.jpg')}}" alt="" />
                         <div class="hov-in">
                             <a href="#"><i class="fab fa-instagram"></i></a>
                         </div>
