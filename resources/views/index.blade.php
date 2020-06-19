@@ -152,7 +152,7 @@
                             </div>
 
                             <div class="why-text">
-                                <h4>{{$produit->description}}</h4>
+                                <h4>{{$produit->name}}</h4>
                                 <h5>$ {{$produit->price}}</h5>
                             </div>
                         </div>

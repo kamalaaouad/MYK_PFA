@@ -38,6 +38,7 @@ class Card extends Model
     public function add($product)
     {
         $item = [
+
             'id'=>$product->id,
             'name' => $product->name,
             'price' => $product->price,
