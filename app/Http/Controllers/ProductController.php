@@ -6,6 +6,7 @@ use App\product;
 use App\brand;
 use App\category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use phpDocumentor\Reflection\Types\Collection;
 
 class ProductController extends Controller
@@ -189,7 +190,16 @@ class ProductController extends Controller
         $min = (int)substr($limits[0], 1); // eliminer le $ au debut d'ou '1'
         $max = (int)substr($limits[1], 2); // eliminer l'espace et le $ au debut d'ou '2'
         //dd($min ,$max );
-        return  view('shop',['products'=>Product::where([['price','>=',$min],['price','<=',$max]])->get(),'categories'=>category::all(),'brands'=>brand::all()]);
+        //$products = DB::select('select * from products where (price*(1+TVA))*(1-discount) between :min and :max', ['min'=>$min,'max'=>$max]);
+        //dd($products);
+        $data =product::all();
+        foreach ($data as $item){
+            if(($item->price*(1+$item->TVA) * (1-$item->discount)) >= $min and ($item->price*(1+$item->TVA) * (1-$item->discount)) <= $max ){
+                $products[] = $item;
+            }
+        }
+
+        return  view('shop',['products'=>$products,'categories'=>category::all(),'brands'=>brand::all()]);
     }
 
 
@@ -206,4 +216,12 @@ class ProductController extends Controller
        // dd($sorted);
     }
 
+
+        public function discountEdit(Request $request){
+            $product = product::find($request->input('id'));
+            $product->discount = floatval($request->input('discount')) / 100 ;
+            $product->save();
+            return view('admin.product.product',['products'=>Product::all()]);
+
+        }
 }

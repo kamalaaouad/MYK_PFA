@@ -20,7 +20,9 @@
                                 <th scope="col">Nom de produit</th>
                                 <th scope="col">Description</th>
                                 <th scope="col">Prix HT</th>
+                                <th scope="col">Prix TTC</th>
                                 <th scope="col">Remise</th>
+                                <th scope="col">Prix soldé</th>
                                 <th scope="col">Stock</th>
                                 <th scope="col">&nbsp;</th>
                                 <th scope="col">&nbsp;</th>
@@ -34,7 +36,9 @@
                                     <td class="tm-product-name">{{$product->name}}</td>
                                     <td>{{$product->description}}</td>
                                     <td>{{$product->price}} DH</td>
-                                    <td>- {{$product->discount}} %</td>
+                                    <td>{{$product->price * (1+$product->TVA)}} DH</td>
+                                    <td>- {{$product->discount * 100 }} %</td>
+                                    <td>{{($product->price *(1 + $product->TVA))*(1-$product->discount) }}</td>
 
 
                                     <td>{{$product->quantity}}</td>
