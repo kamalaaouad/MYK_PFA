@@ -46,7 +46,7 @@ class Card extends Model
             'name' => $product->name,
             'price' => $product->price,
             'quantity' => 0,
-            'price_Unit'=>(ceil($product->price+($product->price*$product->TVA)-($product->discount*$product->price))),
+            'price_Unit'=>(ceil(($product->price+($product->price*$product->TVA))*(1-$product->discount))),
             'stock'=>$product->quantity,
             'TVA'=>$product->TVA,
             'discount'=>$product->discount,

@@ -156,7 +156,7 @@
                                 @if($produit->discount == 0)
                                     <h5> {{ceil($produit->price*(1+$produit->TVA))}} DHs</h5>
                                 @else
-                                    <h5><del>{{ceil($produit->price*(1+$produit->TVA))}} DHs</del> {{ceil(($produit->price*(1+$produit->TVA)-$produit->discount))}} DHs</h5>
+                                    <h5><del>{{ceil($produit->price*(1+$produit->TVA))}} DHs</del> {{ceil(($produit->price*(1+$produit->TVA)*(1-$produit->discount))}} DHs</h5>
                                 @endif
                             </div>
                         </div>
