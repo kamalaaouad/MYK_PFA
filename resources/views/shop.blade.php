@@ -76,7 +76,11 @@
                                                     </div>
                                                     <div class="why-text">
                                                         <h4>{{$product->name}}</h4>
-                                                        <h5>{{$product->price}} Dh</h5>
+                                                        @if($product->discount == 0)
+                                                            <h5>{{ceil($product->price* (1+ $product->TVA))}} DH</h5>
+                                                        @else
+                                                            <h5> <del style="color:black">{{ceil($product->price* (1+ $product->TVA))}}</del> {{ceil(($product->price*(1+$product->TVA))*(1-$product->discount))}} DH</h5>
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>
@@ -108,7 +112,11 @@
                                                 <div class="col-sm-6 col-md-6 col-lg-8 col-xl-8">
                                                     <div class="why-text full-width">
                                                         <h4>{{$product->name}}</h4>
-                                                        <h5> <del>1000.00 Dh</del>{{$product->price}} Dh</h5>
+                                                        @if($product->discount == 0)
+                                                            <h5>{{ceil($product->price* (1+ $product->TVA))}} DH</h5>
+                                                        @else
+                                                            <h5> <del style="color:white">{{ceil($product->price* (1+ $product->TVA))}}</del> {{ceil(($product->price*(1+$product->TVA))*(1-$product->discount))}} DH</h5>
+                                                        @endif
                                                         <p>{{$product->description}}</p>
                                                         <a class="btn hvr-hover" href="{{ route('cart.add',$product)}}">Add to Cart</a>
                                                     </div>

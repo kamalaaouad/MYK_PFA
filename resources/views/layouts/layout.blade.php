@@ -139,9 +139,6 @@
 
                     <li class="nav-item"><a class="nav-link" href="{{route('shop_product')}}">Tous les produits</a></li>
 
-
-                    <li class="nav-item"><a class="nav-link" href="{{route('shop_product')}}">Tous les produits</a></li>
-
                     <!-- <li class="dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Femme</a>
                         <ul class="dropdown-menu">

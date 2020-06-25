@@ -153,7 +153,11 @@
 
                             <div class="why-text">
                                 <h4>{{$produit->name}}</h4>
-                                <h5>$ {{$produit->price}}</h5>
+                                @if($produit->discount == 0)
+                                    <h5>{{ceil($produit->price * (1+$produit->TVA))}} $</h5>
+                                @else
+                                    <h5><del>{{ceil($produit->price * (1+$produit->TVA))}}</del> {{ceil(($produit->price *(1 + $produit->TVA))*(1 - $produit->discount))}} $</h5>
+                                @endif
                             </div>
                         </div>
                     </div>

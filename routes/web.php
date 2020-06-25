@@ -51,7 +51,8 @@ Route::get('/admin','AdminController@index')->name('admin');
 
 Route::resource('/admin/brand','BrandController')->except('create','show');
 Route::resource('/admin/category','CategoryController')->except('create','show');
-Route::resource('/admin/product','ProductController')->except('show');
+Route::resource('/admin/product','ProductController');
+route::post('/admin/discount/edit','ProductController@discountEdit')->name('discountEdit');
 
 Route::get('/admin/transporteur','AdminController@transport')->name('transporteur');
 
