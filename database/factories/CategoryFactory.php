@@ -8,7 +8,7 @@ use App\Category;
 $factory->define(Category::class, function (Faker $faker) {
     return [
 
-        'name' => $faker->name,
+        'name' => $faker->company,
         //
     ];
 });

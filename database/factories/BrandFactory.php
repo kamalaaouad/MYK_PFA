@@ -8,7 +8,7 @@ use App\Brand;
 $factory->define(Brand::class, function (Faker $faker) {
     return [
 
-        'name' => $faker->name,
+        'name' => $faker->company,
         //
     ];
 });

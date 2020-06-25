@@ -16,7 +16,7 @@
                         <div class="col-md-12">
                             <h1 class="m-b-20"><strong>Bienvenue à <br>MYK</strong></h1>
                             <p class="m-b-40">Votre coin de beauté<br>Imaginez toutes les beautés </p>
-                            <p><a class="btn hvr-hover" href="shop.html">Shop New</a></p>
+                            <p><a class="btn hvr-hover" href="{{route('shop_product')}}">Shop Now</a></p>
                         </div>
                     </div>
                 </div>
@@ -154,9 +154,13 @@
                             <div class="why-text">
                                 <h4>{{$produit->name}}</h4>
                                 @if($produit->discount == 0)
+
                                     <h5> {{ceil($produit->price*(1+$produit->TVA))}} DHs</h5>
                                 @else
-                                    <h5><del>{{ceil($produit->price*(1+$produit->TVA))}} DHs</del> {{ceil(($produit->price*(1+$produit->TVA)*(1-$produit->discount))}} DHs</h5>
+
+                                    <h5><del style="color:black;">{{ceil($produit->price*(1+$produit->TVA))}}</del> {{ceil((($produit->price*(1+$produit->TVA))* (1-$produit->discount)))}} DH</h5>
+
+
                                 @endif
                             </div>
                         </div>

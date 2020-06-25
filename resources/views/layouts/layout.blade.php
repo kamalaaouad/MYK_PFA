@@ -133,11 +133,11 @@
             <div class="collapse navbar-collapse" id="navbar-menu">
                 <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
                     <li class="dropdown">
+
                         <a href="{{url('/text')}}" class="nav-link dropdown-toggle" data-toggle="dropdown">Nouveautés</a>
                     </li>
 
                     <li class="nav-item"><a class="nav-link" href="{{route('shop_product')}}">Tous les produits</a></li>
-
 
                     <!-- <li class="dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Femme</a>
@@ -231,7 +231,7 @@
                     <ul class="cart-list">
                         @foreach($cart->items as $prodct)
                             <li>
-                                <a href="#" class="photo"><img src="image/instagram/{{$prodct['image']}}" class="cart-thumb" alt="" /></a>
+                                <a href="#" class="photo"><img src="{{asset('image/instagram/'.$prodct['image'])}}" class="cart-thumb" alt="" /></a>
                                 <h6><a href="#">{{$prodct['name']}} </a></h6>
                                 <p>{{$prodct['quantity']}}x - <span class="price">{{$prodct['price_Unit']}} DHs</span></p>
                             </li>

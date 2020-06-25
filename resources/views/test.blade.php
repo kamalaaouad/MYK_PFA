@@ -6,6 +6,7 @@
 
 @section('content')
 
+
     <form action="{{route('user.update',["user"=>auth::user()->id])}}" method="post" enctype="multipart/form-data">
         @csrf
         @method('PATCH')
@@ -36,6 +37,7 @@
                         <div class="data">
                             <label>Prenom</label>
                             <input type="text" value="{{auth::user()->name}}">
+
                         </div>
                     </div>
                 </div>
@@ -45,9 +47,11 @@
                             <label>Tel</label>
                             <input type="text" name="email" value="{{auth::user()->email}}">
                         </div>
+
                         <div class="data">
                             <label>Email</label>
                             <input type="text" value="{{auth::user()->image}}">
+
                         </div>
                     </div>
                 </div>

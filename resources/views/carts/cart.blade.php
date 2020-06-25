@@ -108,25 +108,27 @@
             <div class="col-lg-8 col-sm-12"></div>
             <div class="col-lg-4 col-sm-12">
                 <div class="order-box">
-                    <h3>Order summary</h3>
+                    <h3>Resumé du commande</h3>
                     @if($card)
                         <div class="d-flex">
-                            <h4>Prix Hors tax</h4>
-                            <div class="ml-auto font-weight-bold">  {{$card->totalPrice}} DHs</div>
+                            <h4>Prix HT</h4>
+                            <div class="ml-auto font-weight-bold"> + {{$card->TTC_p_Pro}} DH</div>
                         </div>
                         <div class="d-flex">
-                            <h4>Discount</h4>
-                            <div class="ml-auto font-weight-bold">  {{$card->totdiscount}} DHs</div>
+                            <h4>TVA</h4>
+                            <div class="ml-auto font-weight-bold"> + {{($card->alltva)}} DH</div>
                         </div>
+
                         <hr class="my-1">
                         <div class="d-flex">
-                            <h4>Total TVA </h4>
-                            <div class="ml-auto font-weight-bold">  {{($card->alltva)}} DHs</div>
+                            <h4>Remise</h4>
+                            <div class="ml-auto font-weight-bold"> - {{$card->totdiscount}} DH</div>
+
                         </div>
                         <hr>
                         <div class="d-flex gr-total">
-                            <h5>Grand Total</h5>
-                            <div class="ml-auto h5">  {{$card->TTC_totale}} DHs</div>
+                            <h5>Prix TTC</h5>
+                            <div class="ml-auto h5"> + {{$card->TTC_totale}} DH</div>
                         </div>
                         <hr>
                     @endif
@@ -134,6 +136,7 @@
             </div>
 
             <div class="col-12 d-flex shopping-box"><a href="{{route('cart.checkout',$card->TTC_totale)}}" class="ml-auto btn hvr-hover">Checkout</a> </div>
+
         </div>
 
 
