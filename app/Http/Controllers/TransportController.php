@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\auth;
 
@@ -17,7 +18,9 @@ class TransportController extends Controller
     }
     public function index()
     {
-        return view('admin.transport.transport');
+        $transport=User::where('name','like','Transporteur')->get();
+        //dd($transport);
+        return view('/admin.transport.index',compact('transport'));
     }
 
     /**

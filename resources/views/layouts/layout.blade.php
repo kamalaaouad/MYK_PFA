@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="{{asset('css/custom.css')}}">
 
 
+
     <!--[if lt IE 9]>
 
     <script src="{{asset('https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')}}" ></script>
@@ -132,11 +133,14 @@
             <div class="collapse navbar-collapse" id="navbar-menu">
                 <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
                     <li class="dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Nouveautés</a>
+
+                        <a href="{{url('/text')}}" class="nav-link dropdown-toggle" data-toggle="dropdown">Nouveautés</a>
                     </li>
 
                     <li class="nav-item"><a class="nav-link" href="{{route('shop_product')}}">Tous les produits</a></li>
 
+
+                    <li class="nav-item"><a class="nav-link" href="{{route('shop_product')}}">Tous les produits</a></li>
 
                     <!-- <li class="dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Femme</a>
@@ -277,11 +281,6 @@
             </li>
         </div>
         <!-- End Side Menu -->
-    </nav>
-    <!-- End Navigation -->
-</header>
-<!-- End Main Top -->
-
 
 <!-- Start Top Search -->
 <div class="top-search">

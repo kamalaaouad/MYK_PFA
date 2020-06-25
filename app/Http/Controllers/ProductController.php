@@ -23,7 +23,9 @@ class ProductController extends Controller
 
     public function __construct()
     {
-        $this->middleware('role:superadministrator')->except('getByCategory','getByBrand','searchByName','getByPrice');
+
+        $this->middleware('role:superadministrator')->except('getByCategory','getByBrand','searchByName','txt');
+
     }
 
     /**
@@ -165,13 +167,21 @@ class ProductController extends Controller
 
     public function searchByName(Request $request){
         $searched = $request->input('search');
-        $products1 = product::where('name','like','%'.$searched.'%')->get();
+
+        //dd($searched);
+        $products = product::where('name','like','%'.$searched.'%')->get();
         $products2= product::whereHas('category', function($q) use ($searched) { $q->where('name','like','%'.$searched.'%');})->get();
         $products3= product::whereHas('brand', function($q) use ($searched) { $q->where('name','like','%'.$searched.'%');})->get();
-        $products1 = $products1->merge($products2);
-        $products1 = $products1->merge($products3);
+
+        $products = $products->merge($products2);
+        $products = $products->merge($products3);
         //dd($products1);
-        return view('shop',['products'=>$products1 ,'categories'=>category::all(),'brands'=>brand::all()]);
+        //dd($products1);
+        $categories=category::all();
+        $brands=brand::all();
+
+        return view('shop',compact('products','categories','brands'));
+
     }
 
     public function getByPrice(Request $request){
@@ -182,5 +192,18 @@ class ProductController extends Controller
         return  view('shop',['products'=>Product::where([['price','>=',$min],['price','<=',$max]])->get(),'categories'=>category::all(),'brands'=>brand::all()]);
     }
 
+
+
+
+
+    public function txt()
+
+    {
+        $collection = collect(product::all());
+        $sorted = $collection->sortByDesc('updated_at');
+        return view('index',['products'=>$sorted->all()]);
+
+       // dd($sorted);
+    }
 
 }

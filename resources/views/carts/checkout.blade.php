@@ -180,11 +180,11 @@
                                 <div class="col-md-6 mb-3">
                                     <div class="payment-icon">
                                         <ul>
-                                            <li><img class="img-fluid" src="image/payment-icon/1.png" alt=""></li>
-                                            <li><img class="img-fluid" src="image/payment-icon/2.png" alt=""></li>
-                                            <li><img class="img-fluid" src="image/payment-icon/3.png" alt=""></li>
-                                            <li><img class="img-fluid" src="image/payment-icon/5.png" alt=""></li>
-                                            <li><img class="img-fluid" src="image/payment-icon/7.png" alt=""></li>
+                                            <li><img class="img-fluid" src="{{asset('image/payment-icon/1.png')}}" alt="" style="width: 70%;height: 90%;"></li>
+                                            <li><img class="img-fluid" src="{{asset('image/payment-icon/2.png')}}" alt="" style="width: 70%;height: 90%;"></li>
+                                            <li><img class="img-fluid" src="{{asset('image/payment-icon/3.png')}}" alt="" style="width: 70%;height: 90%;"></li>
+                                            <li><img class="img-fluid" src="{{asset('image/payment-icon/5.png')}}" alt="" style="width: 70%;height: 90%;"></li>
+                                            <li><img class="img-fluid" src="{{asset('image/payment-icon/7.png')}}" alt="" style="width: 70%;height: 90%;"></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -220,21 +220,17 @@
                                     <h3>Shopping cart</h3>
                                 </div>
                                 <div class="rounded p-2 bg-light">
-                                    <div class="media mb-2 border-bottom">
-                                        <div class="media-body"> <a href="detail.html"> Lorem ipsum dolor sit amet</a>
-                                            <div class="small text-muted">Price: $80.00 <span class="mx-2">|</span> Qty: 1 <span class="mx-2">|</span> Subtotal: $80.00</div>
-                                        </div>
-                                    </div>
-                                    <div class="media mb-2 border-bottom">
-                                        <div class="media-body"> <a href="detail.html"> Lorem ipsum dolor sit amet</a>
-                                            <div class="small text-muted">Price: $60.00 <span class="mx-2">|</span> Qty: 1 <span class="mx-2">|</span> Subtotal: $60.00</div>
-                                        </div>
-                                    </div>
-                                    <div class="media mb-2">
-                                        <div class="media-body"> <a href="detail.html"> Lorem ipsum dolor sit amet</a>
-                                            <div class="small text-muted">Price: $40.00 <span class="mx-2">|</span> Qty: 1 <span class="mx-2">|</span> Subtotal: $40.00</div>
-                                        </div>
-                                    </div>
+                                    @if(session()->has('card'))
+                                        @if(isset($card->items))
+                                            @foreach($card->items as $cart)
+                                            <div class="media mb-2 border-bottom">
+                                                <div class="media-body"> <a href="detail.html"> {{$cart['name']}}</a>
+                                                    <div class="small text-muted">Price: {{$cart['price']}} DH<span class="mx-2">|</span> Qty: {{$cart['quantity']}} <span class="mx-2">|</span> Subtotal: {{$cart['price_Unit']}} DH</div>
+                                                </div>
+                                            </div>
+                                            @endforeach
+                                        @endif
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -248,22 +244,20 @@
                                     <div class="ml-auto font-weight-bold">Total</div>
                                 </div>
                                 <hr class="my-1">
+                                @if(session()->has('card'))
+                                    @if(isset($card))
                                 <div class="d-flex">
                                     <h4>Sub Total</h4>
-                                    <div class="ml-auto font-weight-bold"> $ 440 </div>
+                                    <div class="ml-auto font-weight-bold">  {{$card->totalPrice}}  DH</div>
                                 </div>
                                 <div class="d-flex">
                                     <h4>Discount</h4>
-                                    <div class="ml-auto font-weight-bold"> $ 40 </div>
+                                    <div class="ml-auto font-weight-bold">  {{$card->totdiscount}} DH</div>
                                 </div>
                                 <hr class="my-1">
                                 <div class="d-flex">
-                                    <h4>Coupon Discount</h4>
-                                    <div class="ml-auto font-weight-bold"> $ 10 </div>
-                                </div>
-                                <div class="d-flex">
-                                    <h4>Tax</h4>
-                                    <div class="ml-auto font-weight-bold"> $ 2 </div>
+                                    <h4>all Tax</h4>
+                                    <div class="ml-auto font-weight-bold">  {{$card->alltva}} DH</div>
                                 </div>
                                 <div class="d-flex">
                                     <h4>Shipping Cost</h4>
@@ -272,9 +266,12 @@
                                 <hr>
                                 <div class="d-flex gr-total">
                                     <h5>Grand Total</h5>
-                                    <div class="ml-auto h5"> $ 388 </div>
+                                    <div class="ml-auto h5">  {{$card->TTC_totale}} DH</div>
                                 </div>
-                                <hr> </div>
+                                <hr>
+                                    @endif
+                                  @endif
+                            </div>
                         </div>
                         <div class="col-12 d-flex shopping-box"> <a href="checkout.html" class="ml-auto btn hvr-hover">Place Order</a> </div>
                     </div>

@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/index','testcontroller@index');
+
+Route::get('/text','ProductController@txt');
+Route::view('/kamal','auth.passwords.confirm');
+
+
 Route::get('/test',function(){
     return view('test',['products'=>App\product::all(),'categories'=>App\category::all(),'brands'=>App\brand::all()]);
 });
@@ -55,8 +60,10 @@ Route::get('/addToCart/{product}', 'CardController@addToCart')->name('cart.add')
 
 Route::get('/shopping-cart', 'ProductController@showCart')->name('cart.show');
 
+Route::get('/admin/transporteur','TransportController@index')->name('transporteur');
 
-Route::resource('/admin/transport','TransportController');
+
+
 Route::get('/transport',function(){
     return view('transport.index');
 })->name('transport');
@@ -76,6 +83,5 @@ Route::post('/shop/price','ProductController@getByPrice')->name('product_by_pric
 
 
 
-
-
+Route::post('/card/Updateqtt/{id_qtt}','CardController@UpdateQtt')->name('update_qtt');
 
