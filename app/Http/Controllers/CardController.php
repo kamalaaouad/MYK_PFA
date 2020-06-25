@@ -151,11 +151,11 @@ class CardController extends Controller
                 $qtty=$newqtty-$itm['quantity'];
                $card->items[$id_qtt]['quantity']=$newqtty;
                //$card->items[$id_qtt]['price_Unit']+=(($itm['price'] * $qtty)+($itm['price'] * $qtty*$itm['TVA']));
-                $card->items[$id_qtt]['price_Unit']+=(ceil($itm['price'] * (1+$itm['TVA']-$itm['discount']))*$qtty);
+                $card->items[$id_qtt]['price_Unit']+=(ceil(($itm['price'] * (1+$itm['TVA']))*(1-$itm['discount'])));
                 $card->totalQty = $card->totalQty +($qtty);
-                $card->totalPrice =ceil( $card->totalPrice +( $itm['price'] * (1+$itm['TVA']-$itm['discount'])* $qtty));
-                $card->TTC_totale += ceil(($itm['price'] * (1+$itm['TVA']-$itm['discount']) * $qtty));
-                $card->alltva+=($itm['TVA']*$qtty);
+                $card->totalPrice =ceil( $card->totalPrice +( ($itm['price'] * (1+$itm['TVA'])* $qtty)*(1-$itm['discount'])));
+                $card->TTC_totale += ceil(($itm['price'] * (1+$itm['TVA']* $qtty)*(1-$itm['discount']) ));
+                $card->alltva+=($itm['price']*$itm['TVA']*$qtty);
                 break;
             }
         }
