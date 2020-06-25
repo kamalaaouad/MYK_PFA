@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    {{$montant}}
+
 
     <!-- Start All Title Box -->
     <div class="all-title-box">

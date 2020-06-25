@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Card;
 use App\Http\Controllers\Controller;
 use App\product;
+use App\User;
 use Illuminate\Http\Request;
 
 class CardController extends Controller
@@ -128,9 +129,10 @@ class CardController extends Controller
             if($itm['id'] == $id_product){
                 unset(session()->get('card')->items[$id_product]);
                 $card->totalQty = $card->totalQty - $itm['quantity'] ;
-                $card->alltva-=($itm['TVA']*$itm['quantity']);
-                $card->totalPrice = $card->totalPrice - $itm['price'] * $itm['quantity'];
-                $card->TTC_totale -= (($itm['price'] * $itm['quantity'])+($itm['price'] * $itm['quantity']*$itm['TVA'])-($itm['discount']* $itm['quantity']));
+                $card->alltva-=($itm['TVA']);
+                $card->totdiscount-=($itm['discount']*$itm['quantity']);
+                $card->totalPrice = $card->totalPrice - $itm['price_Unit'] * $itm['quantity'];
+                $card->TTC_totale -= (($itm['price_Unit'] * $itm['quantity']));
             }
         }
         //$this->addToCart();
@@ -148,10 +150,11 @@ class CardController extends Controller
             if($itm['id'] == $id_qtt){
                 $qtty=$newqtty-$itm['quantity'];
                $card->items[$id_qtt]['quantity']=$newqtty;
-               $card->items[$id_qtt]['price_Unit']+=(($itm['price'] * $qtty)+($itm['price'] * $qtty*$itm['TVA']));
+               //$card->items[$id_qtt]['price_Unit']+=(($itm['price'] * $qtty)+($itm['price'] * $qtty*$itm['TVA']));
+                $card->items[$id_qtt]['price_Unit']+=(ceil($itm['price'] * (1+$itm['TVA']-$itm['discount']))*$qtty);
                 $card->totalQty = $card->totalQty +($qtty);
-                $card->totalPrice =( $card->totalPrice +( $itm['price'] * $qtty));
-                $card->TTC_totale += (($itm['price'] * $qtty)+($itm['price'] * $qtty*$itm['TVA'])+($itm['discount']*$qtty));
+                $card->totalPrice =ceil( $card->totalPrice +( $itm['price'] * (1+$itm['TVA']-$itm['discount'])* $qtty));
+                $card->TTC_totale += ceil(($itm['price'] * (1+$itm['TVA']-$itm['discount']) * $qtty));
                 $card->alltva+=($itm['TVA']*$qtty);
                 break;
             }
@@ -159,5 +162,9 @@ class CardController extends Controller
         session()->put('card',$card);
 
         return redirect()->back();
+    }
+    public function client(){
+        $clients=User::all();
+        return view('clients.client',compact('clients'));
     }
 }

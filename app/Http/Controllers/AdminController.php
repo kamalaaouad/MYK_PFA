@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -83,6 +84,17 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+         $client=User::findOrFail($id);
+         $client->delete();
+        return redirect()->back();
+    }
+
+    public function client(){
+        $clients=User::all();
+        return view('admin.clients.client',compact('clients'));
+    }
+    public function transports(){
+        $transport=User::all();
+        return view('admin.transport.transports',compact('transport'));
     }
 }

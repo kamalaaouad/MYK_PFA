@@ -233,12 +233,12 @@
                             <li>
                                 <a href="#" class="photo"><img src="image/instagram/{{$prodct['image']}}" class="cart-thumb" alt="" /></a>
                                 <h6><a href="#">{{$prodct['name']}} </a></h6>
-                                <p>{{$prodct['quantity']}}x - <span class="price">${{$prodct['price']}}</span></p>
+                                <p>{{$prodct['quantity']}}x - <span class="price">{{$prodct['price_Unit']}} DHs</span></p>
                             </li>
                         @endforeach
                         <li class="total">
                             <a href="{{url('testcart')}}" class="btn btn-default hvr-hover btn-cart">VIEW CART</a>
-                            <span class="float-right"><strong>Total</strong>: {{$cart->totalPrice}}</span>
+                            <span class="float-right"><strong>Total</strong>: {{ceil($cart->totalPrice)}}DHs</span>
                         </li>
                     </ul>
                 @else
@@ -252,32 +252,7 @@
 </header>
 <!-- End Main Top -->
 
-        <!-- Start Side Menu -->
 
-        <div class="side">
-            <a href="#" class="close-side"><i class="fa fa-times"></i></a>
-            {{$cart = new App\Card(session()->get('card'))}}
-            <li class="cart-box">
-                @if(count($cart->items) != 0 )
-                    <ul class="cart-list">
-                        @foreach($cart->items as $prodct)
-                            <li>
-                                <a href="#" class="photo"><img src="{{asset('image/instagram/'.$prodct['image'])}}" class="cart-thumb" alt="" /></a>
-                                <h6><a href="#">{{$prodct['name']}} </a></h6>
-                                <p>{{$prodct['quantity']}}x - <span class="price">${{$prodct['price']}}</span></p>
-                            </li>
-                        @endforeach
-                        <li class="total">
-                            <a href="{{url('testcart')}}" class="btn btn-default hvr-hover btn-cart">VIEW CART</a>
-                            <span class="float-right"><strong>Total</strong>: {{$cart->totalPrice}} $</span>
-                        </li>
-                    </ul>
-                @else
-                    <p>There are no items in the cart</p>
-                @endif
-            </li>
-        </div>
-        <!-- End Side Menu -->
 
 <!-- Start Top Search -->
 <div class="top-search">

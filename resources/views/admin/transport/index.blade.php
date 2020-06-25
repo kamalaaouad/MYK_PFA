@@ -6,80 +6,109 @@
 
 
 @section('content')
-<div class="container tm-mt-big tm-mb-big" >
+    <div><br><br><br></div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header" style="background-color: #b1dfbb; text-align: center">{{ __('Register Transport') }}</div>
 
-    <div class="row">
+                    <div class="card-body" style="background-color: aquamarine">
+                        <form method="POST" action="{{ route('register_Transport') }}">
+                            @csrf
 
-        <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12 mx-auto">
+                            <div class="form-group row">
+                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
-            <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
-              <div class="jumbotron">
-                <h1 style="color:white">Ajouter un transpoteur</h1>
-          </div>
+                                <div class="col-md-6">
+                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
-    <form method="POST" action="#" >
-      @csrf
-        <div class="form-row">
-          <div class="col-md-6 mb-6">
-            <label for="nom">Nom</label>
-            <input type="text" class="form-control " name="name" id="nom" placeholder="nom"  required style="background-color: white;color:black;">
-          </div>
-          {{-- <div class="col-md-4 mb-3">
-            <label for="prenom">Prenom</label>
-            <input type="text" class="form-control" id="prenom" placeholder="Last name"  required style="background-color: white;color:black;">
+                                    @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
 
-          </div> --}}
-          <div class="col-md-6 mb-6">
-            <label for="username">Mail</label>
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text" id="mail">@</span>
-              </div>
-              <input type="mail" class="form-control" name="mail" id="mail" placeholder="exemple@exemple.com" aria-describedby="inputGroupPrepend3" required style="background-color: white;color:black;">
+                            <div class="form-group row">
+                                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+
+                                    @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+                                    @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Adrress@') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="name" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address" autofocus>
+
+                                    @error('address')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Tel@') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="name" type="text" class="form-control @error('tel') is-invalid @enderror" name="tel" value="{{ old('tel') }}" required autocomplete="tel" autofocus>
+
+                                    @error('tel')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <input type="hidden" name="image" value="profile.jpg">
+
+                            <div class="form-group row mb-0">
+                                <div class="col-md-6 offset-md-4" >
+                                    <button type="submit" class="btn btn-primary" style="text-align: center">
+                                        {{ __('Register') }}
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="col-md-6 mb-6">
-            <label for="tel">Tél</label>
-            <input type="tel" class="form-control " name="tel" id="tel" placeholder="+212 600 000 000" required style="background-color: white;color:black;">
-            {{-- is-invalid --}}
-            {{-- <div class="invalid-feedback">
-              Please provide a valid state.
-            </div> --}}
-          </div>
-          <div class="col-md-6 mb-6">
-            <label for="adress">Adress</label>
-            <input type="text" class="form-control " name="address" id="adress" placeholder="adress" required style="background-color: white;color:black;">
-            {{-- <div class="invalid-feedback">
-              Please provide a valid city.
-            </div> --}}
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="col-md-6 mb-6">
-            <label for="password">Mot de pass </label>
-            <input type="password" class="form-control " name="password" id="password" required style="background-color: white;color:black;">
-            {{-- is-invalid --}}
-            {{-- <div class="invalid-feedback">
-              Please provide a valid state.
-            </div> --}}
-          </div>
-          <div class="col-md-6 mb-6">
-            <label for="password_confirmation">Confirmation de mot de pass</label>
-            <input type="password" class="form-control " name="password_confirmation" id="password_confirmation"  required style="background-color: white;color:black;">
-            {{-- <div class="invalid-feedback">
-              Please provide a valid zip.
-            </div> --}}
-          </div>
-        </div>
-        </div>
-        <button class="btn btn-primary" type="submit">Ajouter</button>
-  </form>
-          </div>
         </div>
     </div>
-</div>
-
+    <div><br><br><br><br><br></div>
 @endsection

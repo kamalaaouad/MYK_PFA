@@ -86,12 +86,22 @@
                         </a>
                     </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="accounts.html">
+                    <li class="nav-item dropdown">
+
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
                             <i class="far fa-user"></i>
-                            Comptes
+                            <span>
+                                    Comptes <i class="fas fa-angle-down"></i>
+                                </span>
                         </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{url('client')}}">Clients</a>
+                            <a class="dropdown-item" href="{{url('transports')}}">Transports</a>
+
+                        </div>
                     </li>
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">

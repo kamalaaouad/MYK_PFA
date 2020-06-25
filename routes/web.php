@@ -50,6 +50,7 @@ Route::get('/admin','AdminController@index')->name('admin');
 Route::resource('/admin/brand','BrandController')->except('create','show');
 Route::resource('/admin/category','CategoryController')->except('create','show');
 Route::resource('/admin/product','ProductController')->except('show');
+Route::DELETE('/admin/client/{id}','AdminController@destroy')->name('deleted');
 
 
 Route::get('/addToCart/{product}', 'CardController@addToCart')->name('cart.add');
@@ -78,3 +79,7 @@ Route::post('/shop/search','ProductController@searchByName')->name('product_sear
 Route::post('/shop/price','ProductController@getByPrice')->name('product_by_price');
 
 Route::post('/card/Updateqtt/{id_qtt}','CardController@UpdateQtt')->name('update_qtt');
+
+Route::get('/client','AdminController@client');
+Route::get('/transports','AdminController@transports');
+Route::post('/RegisterTransport','RegisterTransportController@store')->name('register_Transport');
