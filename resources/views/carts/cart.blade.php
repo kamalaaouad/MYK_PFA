@@ -109,14 +109,16 @@
             <div class="col-lg-8 col-sm-12"></div>
             <div class="col-lg-4 col-sm-12">
                 <div class="order-box">
-                    <h3>Order summary</h3>
+                    <h3>Resumé du commande</h3>
                     @if($card)
                         <div class="d-flex">
+
                             <h4>Prix Hors tax</h4>
+ 
                             <div class="ml-auto font-weight-bold"> $ {{$card->totalPrice}} </div>
                         </div>
                         <div class="d-flex">
-                            <h4>Discount</h4>
+                            <h4>Remise</h4>
                             <div class="ml-auto font-weight-bold"> $ {{$card->totdiscount}} </div>
                         </div>
                         <hr class="my-1">

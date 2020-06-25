@@ -85,4 +85,8 @@ class AdminController extends Controller
     {
         //
     }
+
+    public function transport(){
+         return view('admin.transport.transport');
+    }
 }
