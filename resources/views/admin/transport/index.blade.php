@@ -17,7 +17,7 @@
                 <h1 style="color:white">Ajouter un transpoteur</h1>
           </div>
 
-    <form method="POST" action="{{route('')}}" >
+    <form method="POST" action="#" >
       @csrf
         <div class="form-row">
           <div class="col-md-6 mb-6">

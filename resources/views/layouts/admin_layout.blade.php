@@ -80,7 +80,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('transport.index')}}">
+                        <a class="nav-link" href="{{route('transporteur')}}">
                             <i class="fas fa-truck"></i>
                             Transport
                         </a>
