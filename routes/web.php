@@ -13,8 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/index','testcontroller@index');
+
 Route::get('/text','ProductController@txt');
 Route::view('/kamal','auth.passwords.confirm');
+
 
 Route::get('/test',function(){
     return view('test',['products'=>App\product::all(),'categories'=>App\category::all(),'brands'=>App\brand::all()]);
@@ -49,8 +51,14 @@ Route::get('/admin','AdminController@index')->name('admin');
 
 Route::resource('/admin/brand','BrandController')->except('create','show');
 Route::resource('/admin/category','CategoryController')->except('create','show');
+
 Route::resource('/admin/product','ProductController')->except('show');
 Route::DELETE('/admin/client/{id}','AdminController@destroy')->name('deleted');
+
+route::post('/admin/discount/edit','ProductController@discountEdit')->name('discountEdit');
+
+Route::get('/admin/transporteur','AdminController@transport')->name('transporteur');
+
 
 
 Route::get('/addToCart/{product}', 'CardController@addToCart')->name('cart.add');
@@ -78,8 +86,12 @@ Route::get('/shop/brand/{id}','ProductController@getByBrand')->name('product_by_
 Route::post('/shop/search','ProductController@searchByName')->name('product_searched');
 Route::post('/shop/price','ProductController@getByPrice')->name('product_by_price');
 
+
+
 Route::post('/card/Updateqtt/{id_qtt}','CardController@UpdateQtt')->name('update_qtt');
+
 
 Route::get('/client','AdminController@client');
 Route::get('/transports','AdminController@transports');
 Route::post('/RegisterTransport','RegisterTransportController@store')->name('register_Transport');
+
