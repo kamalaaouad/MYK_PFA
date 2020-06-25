@@ -110,7 +110,13 @@ class CardController extends Controller
         return view('carts.cart', compact('card'));
     }
     public function checkout($montant){
-        return view('carts.checkout',compact('montant'));
+
+        if (session()->has('card')) {
+            $card = new Card(session()->get('card'));
+        } else {
+            $card = null;
+        }
+        return view('carts.checkout',compact('montant','card'));
     }
 
     public function deletecart(Request $request,$id_product){
@@ -122,12 +128,34 @@ class CardController extends Controller
             if($itm['id'] == $id_product){
                 unset(session()->get('card')->items[$id_product]);
                 $card->totalQty = $card->totalQty - $itm['quantity'] ;
+                $card->alltva-=($itm['TVA']*$itm['quantity']);
                 $card->totalPrice = $card->totalPrice - $itm['price'] * $itm['quantity'];
-
+                $card->TTC_totale -= (($itm['price'] * $itm['quantity'])+($itm['price'] * $itm['quantity']*$itm['TVA'])-($itm['discount']* $itm['quantity']));
             }
         }
         //$this->addToCart();
 
+        session()->put('card',$card);
+
+        return redirect()->back();
+    }
+    public function UpdateQtt(Request $request,$id_qtt){
+        $newqtty=$request->input('update_qtt');
+        $card=session()->get('card');
+        foreach ($card->items  as   $itm)
+        {
+
+            if($itm['id'] == $id_qtt){
+                $qtty=$newqtty-$itm['quantity'];
+               $card->items[$id_qtt]['quantity']=$newqtty;
+               $card->items[$id_qtt]['price_Unit']+=(($itm['price'] * $qtty)+($itm['price'] * $qtty*$itm['TVA']));
+                $card->totalQty = $card->totalQty +($qtty);
+                $card->totalPrice =( $card->totalPrice +( $itm['price'] * $qtty));
+                $card->TTC_totale += (($itm['price'] * $qtty)+($itm['price'] * $qtty*$itm['TVA'])+($itm['discount']*$qtty));
+                $card->alltva+=($itm['TVA']*$qtty);
+                break;
+            }
+        }
         session()->put('card',$card);
 
         return redirect()->back();

@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('title')
-    cart
+     cart
 @endsection
 
 @section('content')
@@ -24,6 +24,7 @@
 <!-- Start Cart  -->
 <div class="cart-box-main">
     <div class="container">
+
         <div class="row">
             <div class="col-lg-12">
                 <div class="table-main table-responsive">
@@ -32,8 +33,10 @@
                         <tr>
                             <th>Images</th>
                             <th>Product Name</th>
-                            <th>Price</th>
+                            <th>Price_Unit</th>
                             <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Update</th>
                             <th>Remove</th>
                         </tr>
                         </thead>
@@ -52,10 +55,19 @@
                                         {{$prodct['name']}}
                                     </a>
                                 </td>
+                                <form method="POST" action="{{route('update_qtt',$prodct['id'])}}">
+                                    @csrf
                                 <td class="price-pr">
                                     <p>$ {{$prodct['price']}}</p>
                                 </td>
-                                <td class="quantity-box"><input type="number" size="4" value="{{$prodct['quantity']}}" min="1" max="{{$prodct['stock']}}" step="1" class="c-input-text qty text"></td>
+                                <td class="quantity-box"><input type="number" size="4" name="update_qtt" value="{{$prodct['quantity']}}" min="1" max="{{$prodct['stock']}}" step="1" class="c-input-text qty text"></td>
+                                    <td><p>$ {{$prodct['price_Unit']}}</p></td>
+                                    <td class="rounded-circle">
+                                    <button type="submit">
+                                        <i class="fas fa-pen-square"></i>
+                                    </button>
+                                </td>
+                            </form>
                                 <td class="remove-pr">
                                     <a href="{{route('delete_cart',$prodct['id'])}}">
                                         <i class="fas fa-times"></i>
@@ -71,8 +83,9 @@
             </div>
         </div>
 
-        <div class="row my-5">
-            <!--<div class="col-lg-6 col-sm-6">
+        <hr><hr>
+        <!--<div class="row my-5">
+            <div class="col-lg-6 col-sm-6">
                 <div class="coupon-box">
                     <div class="input-group input-group-sm">
                         <input class="form-control" placeholder="Enter your coupon code" aria-label="Coupon code" type="text">
@@ -81,13 +94,14 @@
                         </div>
                     </div>
                 </div>
-            </div>-->
+            </div>
             <div class="col-lg-6 col-sm-6">
                 <div class="update-box">
                     <input value="Update Cart" type="submit">
                 </div>
             </div>
-        </div>
+        </div>-->
+
         @if(session()->has('card'))
             @if(isset($card->items))
 
@@ -98,7 +112,7 @@
                     <h3>Order summary</h3>
                     @if($card)
                         <div class="d-flex">
-                            <h4>Total Hors tax</h4>
+                            <h4>Prix Hors tax</h4>
                             <div class="ml-auto font-weight-bold"> $ {{$card->totalPrice}} </div>
                         </div>
                         <div class="d-flex">
@@ -107,21 +121,23 @@
                         </div>
                         <hr class="my-1">
                         <div class="d-flex">
-                            <h4>Tax</h4>
+                            <h4>Total TVA </h4>
                             <div class="ml-auto font-weight-bold"> $ {{$card->alltva}} </div>
                         </div>
                         <hr>
                         <div class="d-flex gr-total">
                             <h5>Grand Total</h5>
-                            <div class="ml-auto h5"> $ {{$card->PriceHorstx}} </div>
+                            <div class="ml-auto h5"> $ {{$card->TTC_totale}} </div>
                         </div>
                         <hr>
                     @endif
                 </div>
             </div>
 
-            <div class="col-12 d-flex shopping-box"><a href="{{route('cart.checkout',$card->PriceHorstx)}}" class="ml-auto btn hvr-hover">Checkout</a> </div>
+            <div class="col-12 d-flex shopping-box"><a href="{{route('cart.checkout',$card->TTC_totale)}}" class="ml-auto btn hvr-hover">Checkout</a> </div>
         </div>
+
+
                 @endif
 @endif
     </div>

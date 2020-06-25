@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 use App\Card;
 use App\product;
+use App\brand;
+use App\category;
 use Illuminate\Http\Request;
+use phpDocumentor\Reflection\Types\Collection;
 
 class ProductController extends Controller
 {
@@ -20,7 +23,7 @@ class ProductController extends Controller
 
     public function __construct()
     {
-        $this->middleware('role:superadministrator');
+        $this->middleware('role:superadministrator')->except('getByCategory','getByBrand','searchByName','txt');
     }
 
     /**
@@ -149,5 +152,52 @@ class ProductController extends Controller
         }
 
         return view('index', compact('card','products'));
+    }
+
+    public function getByCategory($id){
+        return view('shop',['products'=>Product::where('category_id',$id)->get() ,'categories'=>category::all(),'brands'=>brand::all()]);
+    }
+
+    public function getByBrand($id){
+        //dd(Product::where('brand_id',$id)->get());
+        return view('shop',['products'=>Product::where('brand_id',$id)->get() ,'categories'=>category::all(),'brands'=>brand::all()]);
+    }
+
+    public function searchByName(Request $request){
+        $searched = $request->input('search');
+        //dd($searched);
+        $products = product::where('name','like','%'.$searched.'%')->get();
+        $products2= product::whereHas('category', function($q) use ($searched) { $q->where('name','like','%'.$searched.'%');})->get();
+        $products3= product::whereHas('brand', function($q) use ($searched) { $q->where('name','like','%'.$searched.'%');})->get();
+
+        $products = $products->merge($products2);
+        $products = $products->merge($products3);
+        //dd($products1);
+        //dd($products1);
+        $categories=category::all();
+        $brands=brand::all();
+
+        return view('shop',compact('products','categories','brands'));
+    }
+
+    public function getByPrice(Request $request){
+        $limits = explode('-',$request->input('price_filter'));
+        $min = (int)substr($limits[0], 1); // eliminer le $ au debut d'ou '1'
+        $max = (int)substr($limits[1], 2); // eliminer l'espace et le $ au debut d'ou '2'
+        //dd($min ,$max );
+        return  view('shop',['products'=>Product::where([['price','>=',$min],['price','<=',$max]])->get(),'categories'=>category::all(),'brands'=>brand::all()]);
+    }
+
+
+
+
+    public function txt()
+
+    {
+        $collection = collect(product::all());
+        $sorted = $collection->sortByDesc('updated_at');
+        return view('index',['products'=>$sorted->all()]);
+
+       // dd($sorted);
     }
 }

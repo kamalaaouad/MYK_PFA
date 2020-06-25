@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\auth;
 
@@ -17,7 +18,9 @@ class TransportController extends Controller
     }
     public function index()
     {
-        return view('admin.transport.transport');
+        $transport=User::where('name','like','Transporteur')->get();
+        //dd($transport);
+        return view('/admin.transport.index',compact('transport'));
     }
 
     /**
@@ -46,9 +49,9 @@ class TransportController extends Controller
         //     'vat_number' => 'max:13',
         //     'password' => 'required|confirmed|min:6',
         // ]);
-        
 
-        
+
+
         //  $this->validate($request, [
         //     'name' => 'required|min:6|max:50',
         //     'mail' => 'email',

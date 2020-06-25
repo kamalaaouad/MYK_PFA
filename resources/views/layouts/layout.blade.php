@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="{{asset('css/custom.css')}}">
 
 
+
     <!--[if lt IE 9]>
 
     <script src="{{asset('https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')}}" ></script>
@@ -132,18 +133,12 @@
             <div class="collapse navbar-collapse" id="navbar-menu">
                 <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
                     <li class="dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Nouveautés</a>
-                        <!--<ul class="dropdown-menu">
-                            <li><a href="shop.html">Homme</a></li>
-                            <li><a href="shop-detail.html">Femme</a></li>
-
-
-
+                        <a href="{{url('/text')}}" class="nav-link dropdown-toggle" data-toggle="dropdown">Nouveautés</a>
                     </li>
-                    <li class="dropdown">
-                        <li class="nav-item"><a class="nav-link" href="{{route('shop_product')}}">Tous les produits</a></li>
 
-                    <!--hna fen khassa </li>-->
+                    <li class="nav-item"><a class="nav-link" href="{{route('shop_product')}}">Tous les produits</a></li>
+
+
                     <!-- <li class="dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Femme</a>
                         <ul class="dropdown-menu">
@@ -227,8 +222,9 @@
             <!-- End Atribute Navigation -->
         </div>
         <!-- Start Side Menu -->
-        {{$cart = new App\Card(session()->get('card'))}}
         <div class="side">
+
+            {{$cart = new App\Card(session()->get('card'))}}
             <a href="#" class="close-side"><i class="fa fa-times"></i></a>
             <li class="cart-box">
                 @if(count($cart->items) != 0 )
@@ -266,7 +262,7 @@
                     <ul class="cart-list">
                         @foreach($cart->items as $prodct)
                             <li>
-                                <a href="#" class="photo"><img src="image/instagram/{{$prodct['image']}}" class="cart-thumb" alt="" /></a>
+                                <a href="#" class="photo"><img src="{{asset('image/instagram/'.$prodct['image'])}}" class="cart-thumb" alt="" /></a>
                                 <h6><a href="#">{{$prodct['name']}} </a></h6>
                                 <p>{{$prodct['quantity']}}x - <span class="price">${{$prodct['price']}}</span></p>
                             </li>
@@ -282,11 +278,6 @@
             </li>
         </div>
         <!-- End Side Menu -->
-    </nav>
-    <!-- End Navigation -->
-</header>
-<!-- End Main Top -->
-
 
 <!-- Start Top Search -->
 <div class="top-search">
@@ -306,7 +297,7 @@
             <div class="main-instagram owl-carousel owl-theme">
                 <div class="item">
                     <div class="ins-inner-box">
-                        <img src="image/instagram/6.jpg" alt="" />
+                        <img src="{{asset('image/instagram/6.jpg')}}" alt="" />
                         <div class="hov-in">
                             <a href="#"><i class="fab fa-instagram"></i></a>
                         </div>
@@ -314,7 +305,7 @@
                 </div>
                 <div class="item">
                     <div class="ins-inner-box">
-                        <img src="image/instagram/3.jpg" alt="" />
+                        <img src="{{asset('image/instagram/3.jpg')}}" alt="" />
                         <div class="hov-in">
                             <a href="#"><i class="fab fa-instagram"></i></a>
                         </div>
@@ -322,7 +313,7 @@
                 </div>
                 <div class="item">
                     <div class="ins-inner-box">
-                        <img src="image/instagram/2.jpg" alt="" />
+                        <img src="{{asset('image/instagram/2.jpg')}}" alt="" />
                         <div class="hov-in">
                             <a href="#"><i class="fab fa-instagram"></i></a>
                         </div>
@@ -330,7 +321,7 @@
                 </div>
                 <div class="item">
                     <div class="ins-inner-box">
-                        <img src="image/instagram/1.jpg" alt="" />
+                        <img src="{{asset('image/instagram/1.jpg')}}" alt="" />
                         <div class="hov-in">
                             <a href="#"><i class="fab fa-instagram"></i></a>
                         </div>
@@ -428,7 +419,7 @@
 
         <!-- Start copyright  -->
         <div class="footer-copyright">
-            <p class="footer-company">All Rights Reserved. &copy; 2020 <a href="index.html">MYK BEAUTY</p>
+            <p class="footer-company">All Rights Reserved. &copy; 2020 <a href="{{url('index')}}">MYK BEAUTY</a></p>
         </div>
         <!-- End copyright  -->
 

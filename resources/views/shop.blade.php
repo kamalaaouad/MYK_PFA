@@ -64,14 +64,14 @@
                                                         <div class="type-lb">
                                                             <p class="new">New</p>
                                                         </div>
-                                                        <img src="image/instagram/{{$product->image}}" class="img-fluid" alt="Image">
+                                                        <img src="{{asset('image/instagram/'.$product->image)}}" class="img-fluid" alt="Image">
                                                         <div class="mask-icon">
                                                             <ul>
                                                                 <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
                                                                 <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
                                                                 <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
                                                             </ul>
-                                                            <a class="cart" href="#">Add to Cart</a>
+                                                            <a class="cart" href="{{ route('cart.add',$product)}}">Add to Cart</a>
                                                         </div>
                                                     </div>
                                                     <div class="why-text">
@@ -93,7 +93,7 @@
                                                             <div class="type-lb">
                                                                 <p class="sale">Sale</p>
                                                             </div>
-                                                            <img src="image/instagram/{{$product->image}}" class="img-fluid" alt="Image">
+                                                            <img src="{{asset('image/instagram/'.$product->image)}}" class="img-fluid" alt="Image">
                                                             <div class="mask-icon">
                                                                 <ul>
                                                                     <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
@@ -110,7 +110,7 @@
                                                         <h4>{{$product->name}}</h4>
                                                         <h5> <del>1000.00 Dh</del>{{$product->price}} Dh</h5>
                                                         <p>{{$product->description}}</p>
-                                                        <a class="btn hvr-hover" href="#">Add to Cart</a>
+                                                        <a class="btn hvr-hover" href="{{ route('cart.add',$product)}}">Add to Cart</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -166,10 +166,13 @@
                             </div>
                             <div class="price-box-slider">
                                 <div id="slider-range"></div>
-                                <p>
-                                    <input type="text" id="amount" readonly style="border:0; color:#fbb714; font-weight:bold;">
-                                    <button class="btn hvr-hover" type="submit">Filter</button>
-                                </p>
+                                <form action="{{route('product_by_price')}}" method="POST" >
+                                    @csrf
+                                    <p>
+                                        <input type="text" name="price_filter" id="amount" readonly style="border:0; color:#fbb714; font-weight:bold;">
+                                        <button class="btn hvr-hover" type="submit">Filter</button>
+                                    </p>
+                                </form>
                             </div>
                         </div>
                     </div>
