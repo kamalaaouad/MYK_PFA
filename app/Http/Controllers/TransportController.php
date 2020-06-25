@@ -46,9 +46,9 @@ class TransportController extends Controller
         //     'vat_number' => 'max:13',
         //     'password' => 'required|confirmed|min:6',
         // ]);
-        
 
-        
+
+
         //  $this->validate($request, [
         //     'name' => 'required|min:6|max:50',
         //     'mail' => 'email',

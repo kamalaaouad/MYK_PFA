@@ -16,7 +16,7 @@
                         <div class="col-md-12">
                             <h1 class="m-b-20"><strong>Bienvenue à <br>MYK</strong></h1>
                             <p class="m-b-40">Votre coin de beauté<br>Imaginez toutes les beautés </p>
-                            <p><a class="btn hvr-hover" href="shop.html">Shop New</a></p>
+                            <p><a class="btn hvr-hover" href="{{route('shop_product')}}">Shop Now</a></p>
                         </div>
                     </div>
                 </div>
