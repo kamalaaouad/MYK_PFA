@@ -23,7 +23,9 @@ class ProductController extends Controller
 
     public function __construct()
     {
+
         $this->middleware('role:superadministrator')->except('getByCategory','getByBrand','searchByName','txt');
+
     }
 
     /**
@@ -165,6 +167,7 @@ class ProductController extends Controller
 
     public function searchByName(Request $request){
         $searched = $request->input('search');
+
         //dd($searched);
         $products = product::where('name','like','%'.$searched.'%')->get();
         $products2= product::whereHas('category', function($q) use ($searched) { $q->where('name','like','%'.$searched.'%');})->get();
@@ -178,6 +181,7 @@ class ProductController extends Controller
         $brands=brand::all();
 
         return view('shop',compact('products','categories','brands'));
+
     }
 
     public function getByPrice(Request $request){
@@ -191,6 +195,7 @@ class ProductController extends Controller
 
 
 
+
     public function txt()
 
     {
@@ -200,4 +205,5 @@ class ProductController extends Controller
 
        // dd($sorted);
     }
+
 }

@@ -13,8 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/index','testcontroller@index');
+
 Route::get('/text','ProductController@txt');
 Route::view('/kamal','auth.passwords.confirm');
+
 
 Route::get('/test',function(){
     return view('test',['products'=>App\product::all(),'categories'=>App\category::all(),'brands'=>App\brand::all()]);
@@ -77,4 +79,6 @@ Route::get('/shop/brand/{id}','ProductController@getByBrand')->name('product_by_
 Route::post('/shop/search','ProductController@searchByName')->name('product_searched');
 Route::post('/shop/price','ProductController@getByPrice')->name('product_by_price');
 
+
 Route::post('/card/Updateqtt/{id_qtt}','CardController@UpdateQtt')->name('update_qtt');
+

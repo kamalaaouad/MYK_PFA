@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('title')
-    shop
+    Index
 @endsection
 
 @section('content')
@@ -168,10 +168,12 @@
                                 <div id="slider-range"></div>
                                 <form action="{{route('product_by_price')}}" method="POST" >
                                     @csrf
+
                                     <p>
                                         <input type="text" name="price_filter" id="amount" readonly style="border:0; color:#fbb714; font-weight:bold;">
                                         <button class="btn hvr-hover" type="submit">Filter</button>
                                     </p>
+
                                 </form>
                             </div>
                         </div>
