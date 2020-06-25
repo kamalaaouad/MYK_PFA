@@ -35,7 +35,6 @@
                             <th>Product Name</th>
                             <th>Price_Unit</th>
                             <th>Quantity</th>
-                            <th>Price</th>
                             <th>Update</th>
                             <th>Remove</th>
                         </tr>
@@ -58,10 +57,10 @@
                                 <form method="POST" action="{{route('update_qtt',$prodct['id'])}}">
                                     @csrf
                                 <td class="price-pr">
-                                    <p>$ {{$prodct['price']}}</p>
+                                   <p> $ {{$prodct['price_Unit']}}</p>
                                 </td>
                                 <td class="quantity-box"><input type="number" size="4" name="update_qtt" value="{{$prodct['quantity']}}" min="1" max="{{$prodct['stock']}}" step="1" class="c-input-text qty text"></td>
-                                    <td><p>$ {{$prodct['price_Unit']}}</p></td>
+
                                     <td class="rounded-circle">
                                     <button type="submit">
                                         <i class="fas fa-pen-square"></i>
@@ -114,22 +113,23 @@
                         <div class="d-flex">
 
                             <h4>Prix Hors tax</h4>
- 
-                            <div class="ml-auto font-weight-bold"> $ {{$card->totalPrice}} </div>
+
+                            <div class="ml-auto font-weight-bold">  {{$card->totalPrice}} DHs</div>
                         </div>
                         <div class="d-flex">
-                            <h4>Remise</h4>
-                            <div class="ml-auto font-weight-bold"> $ {{$card->totdiscount}} </div>
+                            <h4>Discount</h4>
+                            <div class="ml-auto font-weight-bold">  {{$card->totdiscount}} DHs</div>
+
                         </div>
                         <hr class="my-1">
                         <div class="d-flex">
                             <h4>Total TVA </h4>
-                            <div class="ml-auto font-weight-bold"> $ {{$card->alltva}} </div>
+                            <div class="ml-auto font-weight-bold">  {{($card->alltva)}} DHs</div>
                         </div>
                         <hr>
                         <div class="d-flex gr-total">
                             <h5>Grand Total</h5>
-                            <div class="ml-auto h5"> $ {{$card->TTC_totale}} </div>
+                            <div class="ml-auto h5">  {{$card->TTC_totale}} DHs</div>
                         </div>
                         <hr>
                     @endif

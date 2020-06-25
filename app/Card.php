@@ -46,7 +46,7 @@ class Card extends Model
             'name' => $product->name,
             'price' => $product->price,
             'quantity' => 0,
-            'price_Unit'=>($product->price+($product->price*$product->TVA)-$product->discount),
+            'price_Unit'=>(ceil($product->price+($product->price*$product->TVA)-($product->discount*$product->price))),
             'stock'=>$product->quantity,
             'TVA'=>$product->TVA,
             'discount'=>$product->discount,
@@ -56,20 +56,20 @@ class Card extends Model
         if (!array_key_exists($product->id, $this->items)) {
             $this->items[$product->id] = $item;
             $this->totalQty += 1;
-            $this->totalPrice += $product->price;
+            $this->totalPrice += (ceil($product->price * ((1+$product->TVA)-$product->discount)));
             $this->alltva+=$product->TVA;
-            $this->TTC_p_Pro =($product->price+($product->price*$product->TVA)-$product->discount);
+            $this->TTC_p_Pro =($product->price*((1+$product->TVA)-$product->discount));
             $this->totdiscount +=$product->discount;
-            $this->TTC_totale+=$this->TTC_p_Pro;
+            $this->TTC_totale+=ceil($product->price*((1+$product->TVA)-$product->discount*$product->price));
 
         } else {
 
             $this->totalQty += 1;
-            $this->totalPrice += $product->price;
+            $this->totalPrice += (ceil($product->price * ((1 +$product->TVA)-$product->discount)));
             $this->alltva+=$product->TVA;
-            $this->TTC_p_Pro =($product->price+($product->price*$product->TVA)-$product->discount);
+            $this->TTC_p_Pro =ceil($product->price * ((1+$product->TVA)-$product->discount));
             $this->totdiscount +=$product->discount;
-            $this->TTC_totale+=$this->TTC_p_Pro;
+            $this->TTC_totale+=ceil($product->price * ((1+$product->TVA)-$product->discount));
         }
 
         $this->items[$product->id]['quantity'] += 1;
