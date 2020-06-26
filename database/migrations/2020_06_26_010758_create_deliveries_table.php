@@ -21,7 +21,7 @@ class CreateDeliveriesTable extends Migration
             $table->text('address');
             $table->float('price');
             $table->foreignId('commande_id')->constrained();
-            $table->foreignId('user_id')->constrained(); // l'ID du transporteur
+            $table->foreignId('user_id')->nullable(); // l'ID du transporteur
             $table->timestamps();
         });
     }

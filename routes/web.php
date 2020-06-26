@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/index','testcontroller@index');
 
 Route::get('/text','ProductController@txt');
-Route::view('/kamal','auth.passwords.confirm');
+Route::view('/kamal','commandes.index');
 
 
 Route::get('/test',function(){
@@ -94,4 +94,7 @@ Route::post('/card/Updateqtt/{id_qtt}','CardController@UpdateQtt')->name('update
 Route::get('/client','AdminController@client');
 Route::get('/transports','AdminController@transports');
 Route::post('/RegisterTransport','RegisterTransportController@store')->name('register_Transport');
+
+Route::post('/commande','CommandeController@facture')->name('commande');
+Route::post('/commandeSave','CommandeController@store')->name('confirm_commande');
 
