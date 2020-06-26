@@ -129,10 +129,11 @@ class CardController extends Controller
             if($itm['id'] == $id_product){
                 unset(session()->get('card')->items[$id_product]);
                 $card->totalQty = $card->totalQty - $itm['quantity'] ;
-                $card->alltva-=($itm['TVA']);
-                $card->totdiscount-=($itm['discount']*$itm['quantity']);
-                $card->totalPrice = $card->totalPrice - $itm['price_Unit'] * $itm['quantity'];
-                $card->TTC_totale -= (($itm['price_Unit'] * $itm['quantity']));
+                $card->alltva-=($itm['TVA']*$itm['price']*$itm['quantity'] );
+                $card->totdiscount-=($itm['quantity']*ceil($itm['price']*(1+$itm['TVA'])*$itm['discount']));
+                $card->totalPrice -=  $itm['price_Unit'] * $itm['quantity'];
+                $card->TTC_p_Pro-=($itm['price']*$itm['quantity']);
+                $card->TTC_totale -= ((ceil(($itm['price']*(1+$itm['TVA'])* $itm['quantity'])*(1-$itm['discount']))));
             }
         }
         //$this->addToCart();
@@ -149,13 +150,16 @@ class CardController extends Controller
 
             if($itm['id'] == $id_qtt){
                 $qtty=$newqtty-$itm['quantity'];
-               $card->items[$id_qtt]['quantity']=$newqtty;
+               $card->items[$id_qtt]['quantity']+=$qtty;
                //$card->items[$id_qtt]['price_Unit']+=(($itm['price'] * $qtty)+($itm['price'] * $qtty*$itm['TVA']));
-                $card->items[$id_qtt]['price_Unit']+=(ceil($itm['price'] * (1+$itm['TVA']-$itm['discount']))*$qtty);
+                $card->items[$id_qtt]['price_Unit']+=(ceil(($itm['price'] * (1+$itm['TVA'])*$qtty)*(1-$itm['discount'])));
                 $card->totalQty = $card->totalQty +($qtty);
-                $card->totalPrice =ceil( $card->totalPrice +( $itm['price'] * (1+$itm['TVA']-$itm['discount'])* $qtty));
-                $card->TTC_totale += ceil(($itm['price'] * (1+$itm['TVA']-$itm['discount']) * $qtty));
-                $card->alltva+=($itm['TVA']*$qtty);
+                $card->totalPrice =ceil( $card->totalPrice +( ($itm['price'] * (1+$itm['TVA'])* $qtty)*(1-$itm['discount'])));
+                $card->TTC_p_Pro+=($itm['price']*$qtty);
+                $card->TTC_totale += ceil(($itm['price'] * (1+$itm['TVA'])* $qtty)*(1-$itm['discount']));
+                $card->alltva+=($itm['price']*$itm['TVA']*$qtty);
+                //$itm['quantity']+=$qtty;
+                $card->totdiscount+=($qtty*ceil($itm['price']*(1+$itm['TVA'])*$itm['discount']));
                 break;
             }
         }

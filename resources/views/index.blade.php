@@ -157,7 +157,9 @@
 
                                     <h5> {{ceil($produit->price*(1+$produit->TVA))}} DHs</h5>
                                 @else
+
                                     <h5><del style="color:black;">{{ceil($produit->price*(1+$produit->TVA))}}</del> {{ceil((($produit->price*(1+$produit->TVA))* (1-$produit->discount)))}} DH</h5>
+
 
                                 @endif
                             </div>

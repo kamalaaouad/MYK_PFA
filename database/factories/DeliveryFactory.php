@@ -13,7 +13,7 @@ $factory->define(Delivery::class, function (Faker $faker) {
         'delivery_option' => $faker->randomElement(['express','standard','oneDay delivery']),
         'address'=>$faker->address,
         'price' => rand(10,100) ,
-        'commande_id' => rand(1,10) ,
+        'commande_id' => rand(1,5) ,
         'user_id' => 3 ,
     ];
 });
