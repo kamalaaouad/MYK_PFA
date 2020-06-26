@@ -17,6 +17,7 @@ class CreateCommandesTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->boolean('paid')->default(1); // soit payée (1) ou non payée (0)
+            $table->float('amount');
             $table->timestamps();
         });
     }
