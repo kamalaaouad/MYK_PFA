@@ -14,5 +14,6 @@ $factory->define(Delivery::class, function (Faker $faker) {
         'address'=>$faker->address,
         'price' => rand(10,100) ,
         'commande_id' => rand(1,10) ,
+        'user_id' => 3 ,
     ];
 });
