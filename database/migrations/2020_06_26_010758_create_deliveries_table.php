@@ -20,8 +20,8 @@ class CreateDeliveriesTable extends Migration
             $table->string('delivery_option')->default('standard');
             $table->text('address');
             $table->float('price');
-            $table->foreignId('commande_id')->constrained();
-            $table->foreignId('user_id')->nullable(); // l'ID du transporteur
+            $table->foreignId('commande_id')->unique()->constrained();
+            $table->foreignId('user_id')->nullable()->constrained(); // l'ID du transporteur
             $table->timestamps();
         });
     }

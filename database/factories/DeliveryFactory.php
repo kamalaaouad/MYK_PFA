@@ -4,6 +4,7 @@
 
 use Faker\Generator as Faker;
 use App\Delivery;
+use App\User;
 
 $factory->define(Delivery::class, function (Faker $faker) {
     return [
@@ -13,7 +14,7 @@ $factory->define(Delivery::class, function (Faker $faker) {
         'delivery_option' => $faker->randomElement(['express','standard','oneDay delivery']),
         'address'=>$faker->address,
         'price' => rand(10,100) ,
-        'commande_id' => rand(1,5) ,
+        'commande_id' => $faker->unique()->randomElement([1,2,3,4,5,6,7,8,9,10]) ,
         'user_id' => 3 ,
     ];
 });

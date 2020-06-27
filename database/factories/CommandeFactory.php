@@ -11,6 +11,7 @@ $factory->define(Commande::class, function (Faker $faker) {
         //
         'user_id'=> $faker->randomElement(['1','2','3']),
         'paid'=> '1',
-        'amount'=>rand(100,100),
+        'amount'=> rand(100,1000),
+
     ];
 });
