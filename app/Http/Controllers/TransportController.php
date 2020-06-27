@@ -12,12 +12,13 @@ class TransportController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct()
+   /* public function __construct()
     {
         $this->middleware('role:superadministrator');
-    }
+    }*/
     public function index()
     {
+
         $transport=User::where('name','like','Transporteur')->get();
         //dd($transport);
         return view('/admin.transport.index',compact('transport'));

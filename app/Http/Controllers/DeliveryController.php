@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Commande;
 use App\Delivery;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Auth;
 
 class DeliveryController extends Controller
 {
@@ -13,9 +15,24 @@ class DeliveryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
         //
+        $delivery = Delivery::find($id);
+        $delivery->state = 'en cours';
+        $delivery->user_id = auth::User()->id;
+        $delivery->save();
+        return redirect()->back();
+    }
+
+    public function confirm($id)
+    {
+        //
+        $delivery = Delivery::find($id);
+        $delivery->state = 'livrée';
+        $delivery->user_id = auth::User()->id;
+        $delivery->save();
+        return redirect()->back();
     }
 
     /**

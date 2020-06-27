@@ -121,11 +121,11 @@ class CommandeController extends Controller
 
     public function facture(Request $request){
         $data=$request->validate([
-            'nom'=>'required | min:4|max:8',
-            'prenom'=>'required | min:3 | max:14',
+           // 'nom'=>'required | min:4 |max:8',
+            //'prenom'=>'required | min:3 | max:14',
            // 'user_name'=>'required | min:5 | max:20',
             'email'=>'required | email',
-            'address1'=>'required | min:10 | max:30',
+            'address1'=>'required | min:10 | max:200',
            // 'select_pays'=>'required',
             //'select_ville'=>'required',
             //'code_postale'=>'required | numeric',
