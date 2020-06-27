@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/index','testcontroller@index');
 
 Route::get('/text','ProductController@txt');
-Route::view('/kamal','commandes.index');
+Route::get('/kamal','testcontroller@test');
 
 
 Route::get('/test',function(){
