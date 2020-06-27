@@ -30,12 +30,38 @@
             {{url('index')}}
             @endif
             ">
+                @if(auth()->user()->hasRole('superadministrator'))
                 <h1 class="tm-site-title mb-0">MYK ADMIN</h1>
+                    @else
+                    <h1 class="tm-site-title mb-0">MYK TRANSPORT</h1>
+                    @endif
+
             </a>
             <button class="navbar-toggler ml-auto mr-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars tm-nav-icon"></i>
             </button>
+            @if(auth()->user()->hasRole('transporteur'))
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto h-100">
+
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('transport')}}">
+                                <i class="fas fa-truck-loading"></i>
+                                A Livré
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('transport_confirm')}}">
+                                <i class="fas fa-truck"></i>
+                                En cours
+                            </a>
+                        </li>
+
+
+                    </ul>
+            @endif
             @if(auth()->user()->hasRole('superadministrator'))
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto h-100">
@@ -121,7 +147,6 @@
                     </li>
                 </ul>
                 @endif
-
                 <ul class="navbar-nav">
 
                     @auth
@@ -144,11 +169,6 @@
                         </div>
                     </li>
                     @endauth
-                    <!--<li class="nav-item">
-                        <a class="nav-link d-block" href="login.html">
-                            Admin, <b>Se deconnecter</b>
-                        </a>
-                    </li>-->
                 </ul>
             </div>
         </div>

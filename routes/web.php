@@ -70,8 +70,18 @@ Route::get('/admin/transporteur','TransportController@index')->name('transporteu
 
 
 Route::get('/transport',function(){
-    return view('transport.index');
+    $data = App\Delivery::with('commande')->where('state','like','non livrée')->get();
+    //dd($data);
+
+    return view('transport.index',['data'=>$data]);
 })->name('transport');
+
+Route::get('/transport_confirm',function(){
+    $data = App\Delivery::with('commande')->where('state','like','en cours')->get();
+    //dd($data);
+
+    return view('transport.new',['data'=>$data]);
+})->name('transport_confirm');
 
 /*Route::get('/admin/product/discount','ProductController@discountShow')->name('product.discountShow');
 Route::post('/admin/product/discount','ProductController@editDiscount')->name('product.editDiscount');*/
@@ -97,4 +107,8 @@ Route::post('/RegisterTransport','RegisterTransportController@store')->name('reg
 
 Route::post('/commande','CommandeController@facture')->name('commande');
 Route::post('/commandeSave','CommandeController@store')->name('confirm_commande');
+
+Route::get('/deliver/{id}','DeliveryController@index')->name('deliver');
+Route::get('/deliver_confirm/{id}','DeliveryController@confirm')->name('deliver_confirm');
+
 
