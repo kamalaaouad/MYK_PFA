@@ -11,6 +11,7 @@
 
     <!-- Site Metas -->
     <title>    @yield('title')    </title>
+    @yield('links')
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -51,8 +52,8 @@
                 <div class="custom-select-box">
                     <select id="basic" class="selectpicker show-tick form-control" data-placeholder="$ USD">
                         <option selected> DH</option>
-                        <option>$ USD</option>
-                        <option>€ EUR</option>
+                       <!-- <option>$ USD</option>
+                        <option>€ EUR</option>-->
                     </select>
                 </div>
                 <div class="right-phone-box">
@@ -125,7 +126,7 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="{{url('index')}}"><!-- <img src="images/logo.png" class="logo" alt="">--><h1>MYK</h1> </a>
+                <a class="navbar-brand" href="{{url('index')}}" ><!--<img src="" class="logo" alt="">--> <h1 style="font-size: 60px;"><font style="color:black;">M</font><font style="color:#bd5c07;">Y</font><font style="color:black;">K</font></h1></a>
             </div>
             <!-- End Header Navigation -->
 
@@ -133,37 +134,23 @@
             <div class="collapse navbar-collapse" id="navbar-menu">
                 <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
                     <li class="dropdown">
-
-                        <a href="{{url('/text')}}" class="nav-link dropdown-toggle" data-toggle="dropdown">Nouveautés</a>
-                    </li>
-
-                    <li class="nav-item"><a class="nav-link" href="{{route('shop_product')}}">Tous les produits</a></li>
-
-                    <!-- <li class="dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Femme</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="shop.html">Sidebar Shop</a></li>
-                            <li><a href="shop-detail.html">Shop Detail</a></li>
-                            <li><a href="cart.html">Cart</a></li>
-                            <li><a href="checkout.html">Checkout</a></li>
-                            <li><a href="my-account.html">Mon compte</a></li>
-                            <li><a href="wishlist.html">Wishlist</a></li>
-                        </ul>
+                        <a href="{{url('/text')}}" class="nav-link dropdown-toggle" data-toggle="dropdown">Accueil</a>
                     </li>
                     <li class="dropdown">
-
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Homme</a>
+                        <a href="{{url('/index')}}" class="nav-link dropdown-toggle" data-toggle="dropdown">Nouveautés</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Magasin</a>
                         <ul class="dropdown-menu">
-                            <li><a href="shop.html">Sidebar Shop</a></li>
-                            <li><a href="shop-detail.html">Shop Detail</a></li>
-                            <li><a href="cart.html">Cart</a></li>
-                            <li><a href="checkout.html">Checkout</a></li>
-                            <li><a href="my-account.html">Mon compte</a></li>
-                            <li><a href="wishlist.html">Wishlist</a></li>
+                            <li><a href="{{route('shop_product')}}">Tout les produits</a></li>
+                            <li><a href="">Femme</a></li>
+                            <li><a href="">Homme</a></li>
+                            <li><a href="{{url('testcart')}}">Panier</a></li>
+                            <li><a href="">Suivre commande</a></li>
                         </ul>
-                    </li> -->
+                    </li>
                     <li class="nav-item"><a class="nav-link" href="contact-us.html">Rendez vous</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">A propos nous</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('about')}}">A propos nous</a></li>
 
                 <li class="dropdown">
                 <ul class="navbar-nav ml-auto">
@@ -418,6 +405,7 @@
         <script src="{{asset('js/form-validator.min.js')}}"></script>
         <script src="{{asset('js/contact-form-script.js')}}"></script>
         <script src="{{asset('js/custom.js')}}"></script>
+        <script src="{{asset('jss/jquery.min.js')}}"></script>
 
 </body>
 
