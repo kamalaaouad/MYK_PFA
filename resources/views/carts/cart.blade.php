@@ -32,11 +32,11 @@
                         <thead>
                         <tr>
                             <th>Images</th>
-                            <th>Product Name</th>
-                            <th>Price_Unit</th>
-                            <th>Quantity</th>
-                            <th>Update</th>
-                            <th>Remove</th>
+                            <th>Nom</th>
+                            <th>Prix</th>
+                            <th>Quantité</th>
+                            <th>  </th>
+                            <th>Supprimer</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -61,14 +61,17 @@
                                 </td>
                                 <td class="quantity-box"><input type="number" size="4" name="update_qtt" value="{{$prodct['quantity']}}" min="1" max="{{$prodct['stock']}}" step="1" class="c-input-text qty text"></td>
 
-                                    <td class="rounded-circle">
-                                    <button type="submit">
-                                        <i class="fas fa-pen-square"></i>
+                                    <td class="">
+                                    <button type="submit" style="cursor: pointer">
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-repeat" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M2.854 7.146a.5.5 0 0 0-.708 0l-2 2a.5.5 0 1 0 .708.708L2.5 8.207l1.646 1.647a.5.5 0 0 0 .708-.708l-2-2zm13-1a.5.5 0 0 0-.708 0L13.5 7.793l-1.646-1.647a.5.5 0 0 0-.708.708l2 2a.5.5 0 0 0 .708 0l2-2a.5.5 0 0 0 0-.708z"/>
+                                            <path fill-rule="evenodd" d="M8 3a4.995 4.995 0 0 0-4.192 2.273.5.5 0 0 1-.837-.546A6 6 0 0 1 14 8a.5.5 0 0 1-1.001 0 5 5 0 0 0-5-5zM2.5 7.5A.5.5 0 0 1 3 8a5 5 0 0 0 9.192 2.727.5.5 0 1 1 .837.546A6 6 0 0 1 2 8a.5.5 0 0 1 .501-.5z"/>
+                                        </svg>
                                     </button>
                                 </td>
                             </form>
-                                <td class="remove-pr">
-                                    <a href="{{route('delete_cart',$prodct['id'])}}">
+                                <td class="remove-pr" >
+                                    <a style="cursor: pointer;" href="{{route('delete_cart',$prodct['id'])}}">
                                         <i class="fas fa-times"></i>
                                     </a>
                                 </td>

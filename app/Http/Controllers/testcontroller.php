@@ -15,8 +15,8 @@ class testcontroller extends Controller
     public function index()
     {
         $products=Product::all();
-        return view('index',compact('products'));
-        //return view('test',['products'=>Product::all()]);
+        $solds = Product::where('discount','>','0.3')->get();
+        return view('index',compact('products','solds'));
     }
 
     /**

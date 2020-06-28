@@ -52,7 +52,7 @@ Route::get('/admin','AdminController@index')->name('admin');
 Route::resource('/admin/brand','BrandController')->except('create','show');
 Route::resource('/admin/category','CategoryController')->except('create','show');
 
-Route::resource('/admin/product','ProductController')->except('show');
+Route::resource('/admin/product','ProductController');
 Route::DELETE('/admin/client/{id}','AdminController@destroy')->name('deleted');
 
 route::post('/admin/discount/edit','ProductController@discountEdit')->name('discountEdit');
@@ -110,5 +110,11 @@ Route::post('/commandeSave','CommandeController@store')->name('confirm_commande'
 
 Route::get('/deliver/{id}','DeliveryController@index')->name('deliver');
 Route::get('/deliver_confirm/{id}','DeliveryController@confirm')->name('deliver_confirm');
+
+Route::get('about',function(){
+    return view('about');
+})->name('about');
+
+Route::get('suivre_commande','CommandeController@commande_client')->name('follow');
 
 

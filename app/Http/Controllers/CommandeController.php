@@ -71,7 +71,8 @@ class CommandeController extends Controller
 
         session()->forget('card');
         $products=Product::all();
-        return view('index',compact('products'));
+        $solds = Product::where('discount','>','0.3')->get();
+        return view('index',compact('products','solds'));
     }
 
     /**
@@ -180,4 +181,19 @@ class CommandeController extends Controller
         //dd($card->TTC_totale);
         return view('commandes.index',compact('tabledata'));
     }
+
+
+
+
+    public function commande_client(){
+        $commandes= Commande::select('id')->where('user_id',auth::user()->id)->get();
+       // dd($commandes);
+        $ids=[];
+        foreach ($commandes as $commande){
+            $ids[] =$commande->id;
+        }
+        $deliveries = Delivery::whereIn('commande_id',$ids)->get();
+        return view('follow',compact('deliveries'));
+    }
+
 }

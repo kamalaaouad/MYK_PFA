@@ -25,7 +25,7 @@ class ProductController extends Controller
     public function __construct()
     {
 
-        $this->middleware('role:superadministrator')->except('getByCategory','getByBrand','searchByName','txt');
+        $this->middleware('role:superadministrator')->except('getByCategory','getByBrand','searchByName','txt','show');
 
     }
 
@@ -73,6 +73,7 @@ class ProductController extends Controller
     public function show($id)
     {
         //
+        return view('show',['product'=>product::find($id)]);
     }
 
     /**
@@ -211,7 +212,8 @@ class ProductController extends Controller
     {
         $collection = collect(product::all());
         $sorted = $collection->sortByDesc('updated_at');
-        return view('index',['products'=>$sorted->all()]);
+        return view('index',['products'=>$sorted->all(),'solds'=>Product::where('discount','>','0.3')->get()]);
+
 
        // dd($sorted);
     }
