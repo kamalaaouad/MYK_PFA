@@ -146,7 +146,7 @@
                             <li><a href="">Femme</a></li>
                             <li><a href="">Homme</a></li>
                             <li><a href="{{url('testcart')}}">Panier</a></li>
-                            <li><a href="">Suivre commande</a></li>
+                            <li><a href="{{route('follow')}}">Suivre commande</a></li>
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="contact-us.html">Rendez vous</a></li>
