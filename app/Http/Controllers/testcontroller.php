@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Commande;
+use App\Delivery;
 use App\product;
 
 use Illuminate\Http\Request;
@@ -84,4 +86,11 @@ class testcontroller extends Controller
     {
         //
     }
+
+    /*public function test(){
+        //$del=Delivery::all();
+        //$cmmd=new Commande();
+        $comd=Commande::all();
+        return view('test',compact('comd'));
+    }*/
 }

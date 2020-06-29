@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/index','testcontroller@index');
 
 Route::get('/text','ProductController@txt');
-Route::view('/kamal','commandes.index');
+Route::get('/kamal','testcontroller@test');
 
 
 Route::get('/test',function(){
@@ -81,7 +81,9 @@ Route::get('/transport_confirm',function(){
     //dd($data);
 
     return view('transport.new',['data'=>$data]);
+
 })->name('transport_confirm');
+
 
 /*Route::get('/admin/product/discount','ProductController@discountShow')->name('product.discountShow');
 Route::post('/admin/product/discount','ProductController@editDiscount')->name('product.editDiscount');*/
@@ -107,6 +109,8 @@ Route::post('/RegisterTransport','RegisterTransportController@store')->name('reg
 
 Route::post('/commande','CommandeController@facture')->name('commande');
 Route::post('/commandeSave','CommandeController@store')->name('confirm_commande');
+
+
 
 Route::get('/deliver/{id}','DeliveryController@index')->name('deliver');
 Route::get('/deliver_confirm/{id}','DeliveryController@confirm')->name('deliver_confirm');
