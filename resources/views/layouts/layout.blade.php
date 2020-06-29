@@ -126,7 +126,7 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="{{url('index')}}" ><!--<img src="" class="logo" alt="">--> <h1 style="font-size: 60px;"><font style="color:black;">M</font><font style="color:#bd5c07;">Y</font><font style="color:black;">K</font></h1></a>
+                <a class="navbar-brand" href="{{url('index')}}" ><!--<img src="" class="logo" alt=""> --><h1 style="font-size: 60px;"><font style="color:black;">M</font><font style="color:#bd5c07;">Y</font><font style="color:black;">K</font></h1></a>
             </div>
             <!-- End Header Navigation -->
 
@@ -134,10 +134,10 @@
             <div class="collapse navbar-collapse" id="navbar-menu">
                 <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
                     <li class="dropdown">
-                        <a href="{{url('/text')}}" class="nav-link dropdown-toggle" data-toggle="dropdown">Accueil</a>
+                        <a href="{{url('/index')}}" class="nav-link dropdown-toggle" data-toggle="dropdown">Accueil</a>
                     </li>
                     <li class="dropdown">
-                        <a href="{{url('/index')}}" class="nav-link dropdown-toggle" data-toggle="dropdown">Nouveautés</a>
+                        <a href="{{url('/text')}}" class="nav-link dropdown-toggle" data-toggle="dropdown">Nouveautés</a>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Magasin</a>
@@ -224,7 +224,7 @@
                             </li>
                         @endforeach
                         <li class="total">
-                            <a href="{{url('testcart')}}" class="btn btn-default hvr-hover btn-cart">VIEW CART</a>
+                            <a href="{{url('testcart')}}" class="btn btn-default hvr-hover btn-cart">Voir Panier</a>
                             <span class="float-right"><strong>Total</strong>: {{ceil($cart->totalPrice)}}DHs</span>
                         </li>
                     </ul>
@@ -301,9 +301,9 @@
                     <div class="row">
                         <div class="col-lg-4 col-md-12 col-sm-12">
                             <div class="footer-top-box">
-                                <h3>Business Time</h3>
+                                <h3>Temps de travail</h3>
                                 <ul class="list-time">
-                                    <li>Monday - Friday: 08.00am to 05.00pm</li> <li>Saturday: 10.00am to 08.00pm</li> <li>Sunday: <span>Closed</span></li>
+                                    <li>Lundi - Vendredi: 09.00 à 20.00pm</li> <li>Saturday: 11.00 à 22.00</li> <li>Dimanche: <span>Fermé</span></li>
                                 </ul>
                             </div>
                         </div>
@@ -312,17 +312,16 @@
                                 <h3>Newsletter</h3>
                                 <form class="newsletter-box">
                                     <div class="form-group">
-                                        <input class="" type="email" name="Email" placeholder="Email Address*" />
+                                        <input class="" type="email" name="Email" placeholder="Address Email*" />
                                         <i class="fa fa-envelope"></i>
                                     </div>
-                                    <button class="btn hvr-hover" type="submit">Submit</button>
+                                    <button class="btn hvr-hover" type="submit">soumettre</button>
                                 </form>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-12 col-sm-12">
                             <div class="footer-top-box">
-                                <h3>Social Media</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <h3>Réseaux sociaux</h3>
                                 <ul>
                                     <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
                                     <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
@@ -339,7 +338,7 @@
                     <div class="row">
                         <div class="col-lg-4 col-md-12 col-sm-12">
                             <div class="footer-widget">
-                                <h4>About MYK Store</h4>
+                                <h4>A propos MYK Store</h4>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
                             </div>
