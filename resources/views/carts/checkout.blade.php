@@ -73,7 +73,7 @@
                     <div class="col-sm-6 col-lg-6 mb-3">
                         <div class="checkout-address">
                             <div class="title-left">
-                                <h3>Billing address</h3>
+                                <h3>Données du commande</h3>
                             </div>
 
                                 <div class="row">
@@ -200,20 +200,20 @@
                             <div class="col-md-12 col-lg-12">
                                 <div class="shipping-method-box">
                                     <div class="title-left">
-                                        <h3>Shipping Method</h3>
+                                        <h3>Type de Livraison</h3>
                                     </div>
                                     <div class="mb-4">
                                         <div class="custom-control custom-radio">
                                             <input id="shippingOption1" name="shipping-option" class="custom-control-input" checked="checked" type="radio" value="Standard Delivery">
-                                            <label class="custom-control-label" for="shippingOption1">Standard Delivery</label> <span class="float-right font-weight-bold">FREE</span> </div>
+                                            <label class="custom-control-label" for="shippingOption1">Standard Delivery</label> <span class="float-right font-weight-bold">Gratuite</span> </div>
                                         <div class="ml-4 mb-2 small">(3-7 business days)</div>
                                         <div class="custom-control custom-radio">
                                             <input id="shippingOption2" name="shipping-option" class="custom-control-input" type="radio" value="Express Delivery">
-                                            <label class="custom-control-label" for="shippingOption2">Express Delivery</label> <span class="float-right font-weight-bold">10.00 DH</span> </div>
+                                            <label class="custom-control-label" for="shippingOption2">Express Delivery</label> <span class="float-right font-weight-bold">25.00 DH</span> </div>
                                         <div class="ml-4 mb-2 small">(2-4 business days)</div>
                                         <div class="custom-control custom-radio">
                                             <input id="shippingOption3" name="shipping-option" class="custom-control-input" type="radio" value="OneDay Delivey">
-                                            <label class="custom-control-label" for="shippingOption3">OneDay Delivery</label> <span class="float-right font-weight-bold">20.00 DH</span> </div>
+                                            <label class="custom-control-label" for="shippingOption3">OneDay Delivery</label> <span class="float-right font-weight-bold">50.00 DH</span> </div>
                                     </div>
                                 </div>
                             </div>

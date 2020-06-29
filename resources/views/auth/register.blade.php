@@ -10,9 +10,9 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header" style="background-color: #b1dfbb; text-align: center">{{ __('Register') }}</div>
+                    <div class="card-header" style="background-color: #bd5c07; text-align: center;font-size: 30px;color:white;"><h1 style="font-size: 30px;">M<span style="font-size: 30px;color:white; ">Y</span>K</h1>{{ __('Register') }}</div>
 
-                    <div class="card-body" style="background-color: aquamarine">
+                    <div class="card-body" style="background-color: #f0f0f0;">
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
 

@@ -30,9 +30,9 @@
                         <div class="product-item-filter row">
                             <div class="col-12 col-sm-8 text-center text-sm-left">
                                 <div class="toolbar-sorter-right">
-                                    <span>Sort by </span>
+                                    <span>Triés par </span>
                                     <select id="basic" class="selectpicker show-tick form-control" data-placeholder="$ USD">
-                                        <option data-display="Select">Nothing</option>
+                                        <option data-display="Select">Rien</option>
                                         <option value="1">Popularity</option>
                                         <option value="2">High Price → Low Price</option>
                                         <option value="3">Low Price → High Price</option>
@@ -67,9 +67,9 @@
                                                         <img src="{{asset('image/instagram/'.$product->image)}}" class="img-fluid" alt="Image">
                                                         <div class="mask-icon">
                                                             <ul>
-                                                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
-                                                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
-                                                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                                                <li><a href="{{route('product.show',$product->id)}}" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                                                <li><a href="" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
+                                                                <li><a href="" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
                                                             </ul>
                                                             <a class="cart" href="{{ route('cart.add',$product)}}">Add to Cart</a>
                                                         </div>
@@ -100,9 +100,9 @@
                                                             <img src="{{asset('image/instagram/'.$product->image)}}" class="img-fluid" alt="Image">
                                                             <div class="mask-icon">
                                                                 <ul>
-                                                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
-                                                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
-                                                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                                                    <li><a href="{{route('product.show',$product->id)}}" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                                                    <li><a href="" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
+                                                                    <li><a href="" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
                                                                 </ul>
 
                                                             </div>
@@ -134,7 +134,7 @@
                         <div class="search-product">
                             <form method="post" action="{{route('product_searched')}}">
                                 @csrf
-                                <input class="form-control" name="search" placeholder="Search here..." type="text">
+                                <input class="form-control" name="search" placeholder="Cherchez ici..." type="text">
                                 <button type="submit"> <i class="fa fa-search"></i> </button>
                             </form>
                         </div>

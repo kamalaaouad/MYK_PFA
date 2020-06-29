@@ -133,11 +133,13 @@
 @endsection
 
 @section('content')
-    @foreach($deliveries as $delivery)
     <div class="container px-1 px-md-4 py-5 mx-auto">
+
         <div class="row d-flex justify-content-center">
             <h1 style="color: #1b1e21;font-size: 80px;">Liste des commandes</h1>
         </div>
+        @foreach($deliveries as $delivery)
+
         <div class="card">
             <div class="row d-flex justify-content-between px-3 top">
                 <div class="d-flex">
@@ -196,7 +198,8 @@
                 </div>
             </div>
         </div>
+        @endforeach
+
     </div>
-    @endforeach
 
 @endsection

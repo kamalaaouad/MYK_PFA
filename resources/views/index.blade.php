@@ -132,11 +132,11 @@
                                 <img src="{{asset('image/instagram/'.$produit->image)}}" class="img-fluid" alt="Image">
                                 <div class="mask-icon">
                                     <ul>
-                                        <li><a href="{{route('product.show',$product->id)}}" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                        <li><a href="{{route('product.show',$produit->id)}}" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
                                         <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
                                         <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
                                     </ul>
-                                    <a class="cart" href="{{ route('cart.add',$produit)}}">Add to Cart</a>
+                                    <a class="cart" href="{{ route('cart.add',$produit)}}">Ajouter au panier</a>
                                 </div>
                             </div>
 
