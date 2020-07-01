@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/index','testcontroller@index');
 
 Route::get('/text','ProductController@txt');
-Route::get('/kamal','testcontroller@test');
+Route::view('/kamal','test');
 
 
 Route::get('/test',function(){
@@ -37,7 +37,7 @@ Route::post('/craete.register','HomeController@store')->name('create.register');
 
 Route::post('/logout','HomeController@logout')->name('logout');
 Route::get('/profile','HomeController@edit')->name('profile');
-Route::patch('update/{user}','HomeController@update')->name('user.update');
+Route::post('update','HomeController@update')->name('user.update');
 //contact
 Route::get('contact','contactcontroller@create')->name('contact.create')->middleware('auth');
 Route::post('contact','contactcontroller@store')->name('contact.store');

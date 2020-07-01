@@ -1,63 +1,90 @@
 @extends('layouts.layout')
 
 @section('title')
-    commande
+    profile
 @endsection
 
 @section('content')
+    <form action="{{route('user.update',["user"=>auth::user()->id])}}" method="post" enctype="multipart/form-data">
+        @csrf
+        @method('PATCH')
 
-    <div class="col-md-12 col-lg-12">
-        <div class="order-box">
-            <form action="{{route('confirm_commande')}}" method="post">
-                @csrf
-                <div class="title-left">
-                    <h3>Your order</h3>
-                </div>
-                <div class="d-flex">
-                    <div class="font-weight-bold">Product</div>
-                    <div class="ml-auto font-weight-bold">Total</div>
-                </div>
-                <hr class="my-1">
-                <div class="d-flex">
-                    <h4>Prix Hors tax</h4>
-                    <div class="ml-auto font-weight-bold">  {{$tabledata['PHT']}}  DH</div>
-                </div>
-                <div class="d-flex">
-                    <h4>Discount</h4>
-                    <div class="ml-auto font-weight-bold">  {{$tabledata['dis']}} DH</div>
-                </div>
-                <hr class="my-1">
-                <div class="d-flex">
-                    <h4>TVA</h4>
-                    <div class="ml-auto font-weight-bold">  {{$tabledata['tva']}} DH</div>
+    <hr>
+    <div class="container bootstrap snippet">
 
-                </div>
-                <div class="d-flex">
-                    <h4>Montant Totale</h4>
-                    <div class="ml-auto font-weight-bold">  {{$tabledata['MHD']}} DH</div>
-                    <input type="hidden" name="MHD" value="{{$tabledata['MHD']}}" >
-                </div>
-                <div class="d-flex">
-                    <h4>Prix livraison</h4>
-                    <div class="ml-auto font-weight-bold"> {{$tabledata['type']}} ({{$tabledata['pxde']}} DH) </div>
-                    <input type="hidden" name="type" value="{{$tabledata['type']}}" >
-                    <input type="hidden" name="pxde" value="{{$tabledata['pxde']}}" >
-                    <input type="hidden" name="products_id" value="{{serialize($tabledata['id_product'])}}" >
-                    <input type="hidden" name="products_quantity" value="{{serialize($tabledata['quantity_by_product'])}}" >
-                </div>
-                <hr>
-                <hr>
-                <div class="d-flex gr-total">
-                    <h5>Grand Total (Prix livraison)</h5>
-                    <div class="ml-auto h5">  {{$tabledata['amount']}} DH</div>
-                    <input type="hidden" name="address" value="{{$tabledata['address']}}" >
+        <div class="row">
+            <div class="col-sm-3"><!--left col-->
 
+
+                <div class="text-center">
+                    <img src="{{asset('image/'.auth::user()->image)}}" class="avatar img-circle img-thumbnail" alt="avatar">
+                    <h6>Upload a different photo...</h6>
+                    <input type="file" class="text-center center-block file-upload">
                 </div>
-                <hr>
-                <div class="col-12 d-flex shopping-box"> <button type="submit" class="ml-auto btn hvr-hover" style="color:white;"> Confirmer </button> </div><br><br>
+                <br>
+            </div><!--/col-3-->
+            <div class="col-sm-9">
 
-            </form>
-        </div>
 
-    </div>
+
+                <div class="tab-content">
+                    <div class="tab-pane active" id="home">
+                        <hr>
+                        <form class="form" action="##" method="post" id="registrationForm">
+                            <div class="form-group">
+
+                                <div class="col-xs-6">
+                                    <label for="first_name"><h4>Nom </h4></label>
+                                    <input type="text" class="form-control" name="first_name" value="{{auth::user()->name}}" id="first_name" title="enter your first name if any.">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <div class="col-xs-6">
+                                    <label for="phone"><h4>telephone</h4></label>
+                                    <input type="text" class="form-control" name="phone" id="phone" value="{{auth::user()->tel}}"title="enter your phone number if any.">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+
+                                <div class="col-xs-6">
+                                    <label for="email"><h4>Email</h4></label>
+                                    <input type="email" class="form-control" name="email" id="email" value="{{auth::user()->email}}" title="enter your email.">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+
+                                <div class="col-xs-6">
+                                    <label for="phone"><h4>Adresse</h4></label>
+                                    <input type="text" class="form-control" name="adresse" id="phone" value="{{auth::user()->address}}" title="enter your phone number if any.">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-12">
+                                    <br>
+                                    <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                                    <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <hr>
+
+                    </div><!--/tab-pane-->
+
+
+
+
+
+
+                </div><!--/tab-pane-->
+            </div><!--/tab-content-->
+
+        </div><!--/col-9-->
+    </div><!--/row-->
+    </form>
 @endsection

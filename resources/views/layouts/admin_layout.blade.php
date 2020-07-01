@@ -141,7 +141,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                            <a class="dropdown-item" href="#"><i class="far fa-user"></i> Profile</a>
+                            <a class="dropdown-item" href="{{route('profile')}}"><i class="far fa-user"></i> Profile</a>
 
                         </div>
                     </li>
@@ -153,7 +153,7 @@
 
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }} <span class="caret"></span>
+                            {{ Auth::user()->name }} <i class="fas fa-angle-down"></i> <span class="caret"></span>
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -166,6 +166,11 @@
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                             </form>
+                            @if(auth()->user()->hasRole('transporteur'))
+                            <a class="dropdown-item" href="{{route('profile')}}">
+                                <i class="fas fa-cog"></i>{{ __('Modifier profile') }}
+                            </a>
+                                @endif
                         </div>
                     </li>
                     @endauth

@@ -1,84 +1,84 @@
-@extends('layouts.app')
+@extends('layouts.layout')
+
+@section('title')
+    profile
+@endsection
 
 @section('content')
-    <form action="{{route('user.update',["user"=>auth::user()->id])}}" method="post" enctype="multipart/form-data">
+    <form action="{{route('user.update')}}" method="post" >
         @csrf
-        @method('PATCH')
-        <div class="wrapper">
 
-            <div class="left">
 
-                <img src="image/{{auth::user()->image}}" alt="user" width="100" >
-                <br>
-                <h4>{{auth::user()->name}}</h4>
-                <a href="{{url('/index')}}" class="btn btn-warning">go to see product</a>
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-                </div>
-            </div>
-            <div class="right">
-                <div class="info">
-                    <h3>Information</h3>
-                    <div class="info_data">
-                        <div class="data">
-                            <label>Nom</label>
-                            <input type="text" name="name" value="{{auth::user()->name}}">
-                        </div>
-                        <div class="data">
-                            <label>Prenom</label>
-                            <input type="text" value="{{auth::user()->name}}">
-                        </div>
+        <hr>
+        <div class="container bootstrap snippet">
+
+            <div class="row">
+                <div class="col-sm-3"><!--left col-->
+
+
+                    <div class="text-center">
+                        <img src="{{asset('image/'.$user['image'])}}" class="avatar img-circle img-thumbnail" alt="avatar">
+                        <h6>Upload a different photo...</h6>
+                        <input type="file" name="image" class="text-center center-block file-upload">
                     </div>
-                </div>
-                <div class="info">
-                    <div class="info_data">
-                        <div class="data">
-                            <label>Tel</label>
-                            <input type="text" name="email" value="{{auth::user()->email}}">
-                        </div>
-                        <div class="data">
-                            <label>Email</label>
-                            <input type="text" value="{{auth::user()->image}}">
-                        </div>
-                    </div>
-                </div>
-                <div class="info">
-                    <div class="info_data">
-                        <div class="data">
-                            <label>@</label>
-                            <input type="text" value="{{auth::user()->address}}">
-                        </div>
-                        <div class="data">
-                            <label>Mobile</label>
-                            <input type="text" value="{{auth::user()->tel}}">
-                        </div>
-                    </div>
-                </div>
-                <label>Image</label>
-                <div class="input-group mb-3">
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" name="image" value="{{auth::user()->image}}">
-                        <label class="custom-file-label">Choose file</label>
-                    </div>
+                    <br>
+                </div><!--/col-3-->
+                <div class="col-sm-9">
 
 
-                </div>
-                <button class="btn btn-primary" type="submit">Edit</button>
-                <br><br>
-                <div class="social_media">
-                    <ul>
-                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                    </ul>
-                </div>
 
-            </div>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="home">
+                            <hr>
 
-        </div>
+                                <div class="form-group">
+
+                                    <div class="col-xs-6">
+                                        <label for="first_name"><h4>Nom </h4></label>
+                                        <input type="text" class="form-control" name="name" value="{{$user['name']}}" id="first_name" title="enter your first name if any.">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <div class="col-xs-6">
+                                        <label for="phone"><h4>telephone</h4></label>
+                                        <input type="text" class="form-control" name="tel" id="phone" value="{{$user['tel']}}"title="enter your phone number if any.">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+
+                                    <div class="col-xs-6">
+                                        <label for="email"><h4>Email</h4></label>
+                                        <input type="email" class="form-control" name="email" id="email" value="{{$user['email']}}" title="enter your email.">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+
+                                    <div class="col-xs-6">
+                                        <label for="phone"><h4>Adresse</h4></label>
+                                        <input type="text" class="form-control" name="address" id="phone" value="{{$user['address']}}" title="enter your phone number if any.">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <br>
+                                        <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                                        <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
+                                    </div>
+                                </div>
+
+
+                            <hr>
+
+                        </div><!--/tab-pane-->
+                    </div><!--/tab-pane-->
+                </div><!--/tab-content-->
+
+            </div><!--/col-9-->
+        </div><!--/row-->
     </form>
 @endsection
