@@ -38,10 +38,35 @@ class   HomeController extends Controller
         return redirect('/index')->with("data",session()->get('message'));
     }
     public function edit(){
-        return view('home');
+       if(Auth::user()){
+            $user=auth::user();
+            if($user){
+                return view('home',compact('user'));
+            }else{
+                return redirect()->back();
+            }
+        }else{
+            return redirect()->back();
+        }
     }
 
-    // public function shop(){
-    //     return view('shop');
-    // }
+    public function Update(Request $request){
+      //dd($request->input('image'));
+        $user=Auth::user();
+
+        $data=$request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+            'address'=>['required', 'string', 'max:255'],
+            'tel'=>['required', 'string', 'max:255'],
+            'image'=>['required', 'string', 'max:255'],
+        ]);
+
+        $user->update($data);
+
+        return redirect()->back();
+
+
+
+    }
 }
