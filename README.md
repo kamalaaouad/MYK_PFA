@@ -1,5 +1,8 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+---
+### MYK stands for "Mohamed Yassin" "kamal", which are the first names of the two contributers to this project as final year project in the Moroccan School of Engineering | Major : Software and Network Engineering
 
+#### MYK is a web application developped on PHP/LARAVEL7 for a cosmetic online store
+---
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
